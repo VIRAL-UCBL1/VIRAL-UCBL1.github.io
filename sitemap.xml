@@ -2,6 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://viral-ucbl1.github.io/</loc>
-         <lastmod>2024-12-13</lastmod>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/setup/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/ObjectivesMetrics/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/OllamaChat/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/State/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/VIRAL/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/main/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/utils/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/RLAlgo/DirectSearch/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/RLAlgo/PPO/</loc>
+         <lastmod>2024-12-14</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/RLAlgo/Reinforce/</loc>
+         <lastmod>2024-12-14</lastmod>
     </url>
 </urlset>
