@@ -1040,7 +1040,12 @@
 <span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
-<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">OllamaChat</span><span class="p">:</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">OllamaChat</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;qwen2.5-coder&quot;</span><span class="p">,</span>
@@ -1132,11 +1137,16 @@
 
     <span class="k">def</span> <span class="nf">print_Generator_and_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Generator</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Print the response if it&#39;s a generator</span>
+<span class="sd">         Prints the content of a response if it is a generator, or simply returns the response as is.</span>
 <span class="sd">        Args:</span>
-<span class="sd">            response (Generator | str): the response to print</span>
+<span class="sd">            response (Generator | str): The response to print or return. If it&#39;s a generator, </span>
+<span class="sd">                                        it will be printed chunk by chunk. If it&#39;s a string, </span>
+<span class="sd">                                        it will be returned directly.</span>
+<span class="sd">            number (int, optional): The index of the response (default is 1). Used for logging purposes.</span>
+
 <span class="sd">        Returns:</span>
-<span class="sd">            - the response formalized if is was a generator, the response itself otherwise.</span>
+<span class="sd">            The original response if it is a string, or the concatenated string of all chunks </span>
+<span class="sd">            if it was a generator.</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Response </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">Generator</span><span class="p">):</span>
@@ -1584,11 +1594,43 @@
 
     <div class="doc doc-contents ">
 
-        <p>Print the response if it's a generator
+        <p>Prints the content of a response if it is a generator, or simply returns the response as is.
 Args:
-    response (Generator | str): the response to print
-Returns:
-    - the response formalized if is was a generator, the response itself otherwise.</p>
+    response (Generator | str): The response to print or return. If it's a generator, 
+                                it will be printed chunk by chunk. If it's a string, 
+                                it will be returned directly.
+    number (int, optional): The index of the response (default is 1). Used for logging purposes.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The original response if it is a string, or the concatenated string of all chunks </p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>if it was a generator.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
             <details class="quote">
               <summary>Source code in <code>src/OllamaChat.py</code></summary>
@@ -1607,13 +1649,23 @@ Returns:
 <span class="normal">112</span>
 <span class="normal">113</span>
 <span class="normal">114</span>
-<span class="normal">115</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">print_Generator_and_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Generator</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
+<span class="normal">115</span>
+<span class="normal">116</span>
+<span class="normal">117</span>
+<span class="normal">118</span>
+<span class="normal">119</span>
+<span class="normal">120</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">print_Generator_and_return</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="n">Generator</span> <span class="o">|</span> <span class="nb">str</span><span class="p">,</span> <span class="n">number</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Print the response if it&#39;s a generator</span>
+<span class="sd">     Prints the content of a response if it is a generator, or simply returns the response as is.</span>
 <span class="sd">    Args:</span>
-<span class="sd">        response (Generator | str): the response to print</span>
+<span class="sd">        response (Generator | str): The response to print or return. If it&#39;s a generator, </span>
+<span class="sd">                                    it will be printed chunk by chunk. If it&#39;s a string, </span>
+<span class="sd">                                    it will be returned directly.</span>
+<span class="sd">        number (int, optional): The index of the response (default is 1). Used for logging purposes.</span>
+
 <span class="sd">    Returns:</span>
-<span class="sd">        - the response formalized if is was a generator, the response itself otherwise.</span>
+<span class="sd">        The original response if it is a string, or the concatenated string of all chunks </span>
+<span class="sd">        if it was a generator.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Response </span><span class="si">{</span><span class="n">number</span><span class="si">}</span><span class="s2">:&quot;</span><span class="p">)</span>
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">response</span><span class="p">,</span> <span class="n">Generator</span><span class="p">):</span>
