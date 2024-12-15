@@ -1266,24 +1266,7 @@
 <span class="normal">317</span>
 <span class="normal">318</span>
 <span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span>
-<span class="normal">337</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">VIRAL</span><span class="p">:</span>
+<span class="normal">320</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">VIRAL</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">learning_algo</span><span class="p">:</span> <span class="n">Algo</span><span class="p">,</span>
@@ -1319,6 +1302,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">learning_method</span> <span class="o">=</span> <span class="kc">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">State</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;VIRAL&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_learning</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
         <span class="c1">#self.training_callback = TrainingInfoCallback()</span>
 
     <span class="k">def</span> <span class="nf">generate_reward_function</span><span class="p">(</span>
@@ -1511,7 +1495,6 @@
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;train a policy on an environment&quot;&quot;&quot;</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;state </span><span class="si">{</span><span class="n">state</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s2"> begin is learning&quot;</span><span class="p">)</span>
         <span class="n">vec_env</span><span class="p">,</span> <span class="n">model</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_env_model</span><span class="p">(</span><span class="n">state</span><span class="o">.</span><span class="n">reward_func</span><span class="p">)</span>
-
         <span class="n">training_callback</span> <span class="o">=</span> <span class="n">TrainingInfoCallback</span><span class="p">()</span>
         <span class="n">policy</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">learn</span><span class="p">(</span><span class="n">total_timesteps</span><span class="o">=</span><span class="mi">60000</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">training_callback</span><span class="p">)</span>
         <span class="n">metrics</span> <span class="o">=</span> <span class="n">training_callback</span><span class="o">.</span><span class="n">get_metrics</span><span class="p">()</span>
@@ -1562,33 +1545,16 @@
         <span class="n">all_rewards</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">all_states</span> <span class="o">=</span> <span class="p">[]</span>
         <span class="n">nb_success</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">x_max</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="n">x_min</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c1"># avoid div by 0</span>
         <span class="k">for</span> <span class="n">epi</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nb_episodes</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-            <span class="n">total_reward</span> <span class="o">=</span> <span class="mi">0</span>
             <span class="n">obs</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
-            <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_t</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
-                <span class="n">action</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">obs</span><span class="p">,</span> <span class="n">deterministic</span><span class="o">=</span><span class="kc">True</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-                <span class="n">next_observation</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
-                <span class="c1">#infos[env_idx][&quot;TimeLimit.truncated&quot;] = truncated and not terminated</span>
-                <span class="n">truncated</span> <span class="o">=</span> <span class="n">info</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="s2">&quot;TimeLimit.truncated&quot;</span><span class="p">]</span> 
-                <span class="k">if</span> <span class="n">reward_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-                    <span class="n">reward</span> <span class="o">=</span> <span class="n">reward_func</span><span class="p">(</span><span class="n">next_observation</span><span class="p">,</span> <span class="n">done</span><span class="p">,</span> <span class="n">truncated</span><span class="p">)</span>
-                <span class="n">total_reward</span> <span class="o">+=</span> <span class="n">reward</span>
-                <span class="n">state</span> <span class="o">=</span> <span class="n">next_observation</span>
-                <span class="n">all_states</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">state</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">done</span><span class="p">:</span>
-                    <span class="k">if</span> <span class="n">truncated</span><span class="p">:</span>
-                        <span class="n">nb_success</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="n">epi_rewards</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+                <span class="n">action</span><span class="p">,</span> <span class="n">_states</span> <span class="o">=</span> <span class="n">policy</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">obs</span><span class="p">)</span>
+                <span class="n">obs</span><span class="p">,</span> <span class="n">reward</span><span class="p">,</span> <span class="n">dones</span><span class="p">,</span> <span class="n">info</span> <span class="o">=</span> <span class="n">env</span><span class="o">.</span><span class="n">step</span><span class="p">(</span><span class="n">action</span><span class="p">)</span>
+                <span class="n">epi_rewards</span> <span class="o">+=</span> <span class="n">reward</span><span class="o">.</span><span class="n">item</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">dones</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
                     <span class="k">break</span>
-            <span class="n">all_rewards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">total_reward</span><span class="p">)</span>
-            <span class="k">if</span> <span class="n">total_reward</span> <span class="o">&gt;</span> <span class="n">x_max</span><span class="p">:</span>
-                <span class="n">x_max</span> <span class="o">=</span> <span class="n">total_reward</span>
-            <span class="k">if</span> <span class="n">total_reward</span> <span class="o">&lt;</span> <span class="n">x_min</span><span class="p">:</span>
-                <span class="n">x_min</span> <span class="o">=</span> <span class="n">total_reward</span>
-        <span class="n">all_rewards</span> <span class="o">=</span> <span class="p">[</span>
-            <span class="n">x</span> <span class="o">-</span> <span class="n">x_min</span> <span class="o">/</span> <span class="n">x_max</span> <span class="o">-</span> <span class="n">x_min</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="n">all_rewards</span>
-        <span class="p">]</span>  <span class="c1"># Min-Max normalized</span>
+            <span class="n">all_rewards</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">epi_rewards</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">all_states</span><span class="p">,</span> <span class="n">all_rewards</span><span class="p">,</span> <span class="p">(</span><span class="n">nb_success</span> <span class="o">/</span> <span class="n">nb_episodes</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">_generate_env_model</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reward_func</span><span class="p">):</span>
@@ -1669,7 +1635,8 @@
 <span class="normal">51</span>
 <span class="normal">52</span>
 <span class="normal">53</span>
-<span class="normal">54</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+<span class="normal">54</span>
+<span class="normal">55</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span>
     <span class="n">learning_algo</span><span class="p">:</span> <span class="n">Algo</span><span class="p">,</span>
     <span class="n">env_type</span> <span class="p">:</span> <span class="n">Environments</span><span class="p">,</span>
@@ -1704,6 +1671,7 @@
     <span class="bp">self</span><span class="o">.</span><span class="n">learning_method</span> <span class="o">=</span> <span class="kc">None</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">:</span> <span class="n">List</span><span class="p">[</span><span class="n">State</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">State</span><span class="p">(</span><span class="mi">0</span><span class="p">)]</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">logger</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="s2">&quot;VIRAL&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">_learning</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">memory</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
 </code></pre></div></td></tr></table></div>
             </details>
     </div>
@@ -1933,8 +1901,7 @@
 
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 57</span>
-<span class="normal"> 58</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 58</span>
 <span class="normal"> 59</span>
 <span class="normal"> 60</span>
 <span class="normal"> 61</span>
@@ -2009,7 +1976,8 @@
 <span class="normal">130</span>
 <span class="normal">131</span>
 <span class="normal">132</span>
-<span class="normal">133</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate_reward_function</span><span class="p">(</span>
+<span class="normal">133</span>
+<span class="normal">134</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate_reward_function</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">task_description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">State</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
@@ -2177,8 +2145,7 @@
 
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">211</span>
-<span class="normal">212</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">212</span>
 <span class="normal">213</span>
 <span class="normal">214</span>
 <span class="normal">215</span>
@@ -2207,7 +2174,8 @@
 <span class="normal">238</span>
 <span class="normal">239</span>
 <span class="normal">240</span>
-<span class="normal">241</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">self_refine_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="normal">241</span>
+<span class="normal">242</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">self_refine_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Self-refinement of reward function based on performance</span>
 
