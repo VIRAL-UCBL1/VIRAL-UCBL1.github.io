@@ -1451,7 +1451,75 @@
 <span class="normal">433</span>
 <span class="normal">434</span>
 <span class="normal">435</span>
-<span class="normal">436</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">VIRAL</span><span class="p">:</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span>
+<span class="normal">456</span>
+<span class="normal">457</span>
+<span class="normal">458</span>
+<span class="normal">459</span>
+<span class="normal">460</span>
+<span class="normal">461</span>
+<span class="normal">462</span>
+<span class="normal">463</span>
+<span class="normal">464</span>
+<span class="normal">465</span>
+<span class="normal">466</span>
+<span class="normal">467</span>
+<span class="normal">468</span>
+<span class="normal">469</span>
+<span class="normal">470</span>
+<span class="normal">471</span>
+<span class="normal">472</span>
+<span class="normal">473</span>
+<span class="normal">474</span>
+<span class="normal">475</span>
+<span class="normal">476</span>
+<span class="normal">477</span>
+<span class="normal">478</span>
+<span class="normal">479</span>
+<span class="normal">480</span>
+<span class="normal">481</span>
+<span class="normal">482</span>
+<span class="normal">483</span>
+<span class="normal">484</span>
+<span class="normal">485</span>
+<span class="normal">486</span>
+<span class="normal">487</span>
+<span class="normal">488</span>
+<span class="normal">489</span>
+<span class="normal">490</span>
+<span class="normal">491</span>
+<span class="normal">492</span>
+<span class="normal">493</span>
+<span class="normal">494</span>
+<span class="normal">495</span>
+<span class="normal">496</span>
+<span class="normal">497</span>
+<span class="normal">498</span>
+<span class="normal">499</span>
+<span class="normal">500</span>
+<span class="normal">501</span>
+<span class="normal">502</span>
+<span class="normal">503</span>
+<span class="normal">504</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">VIRAL</span><span class="p">:</span>
     <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
         <span class="bp">self</span><span class="p">,</span>
         <span class="n">learning_algo</span><span class="p">:</span> <span class="n">Algo</span><span class="p">,</span>
@@ -1499,14 +1567,51 @@
         <span class="bp">self</span><span class="p">,</span> <span class="n">task_description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
     <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">State</span><span class="p">]:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Generate reward function using LLM</span>
+<span class="sd">        Generate and iteratively improve a reward function using a Language Model (LLM).</span>
+
+<span class="sd">        This method implements a sophisticated reward function generation process </span>
+<span class="sd">        that involves multiple stages of creation, evaluation, and refinement.</span>
+
+<span class="sd">        Key Stages:\n</span>
+<span class="sd">        1. Initial Function Generation: Create two initial reward function candidates</span>
+<span class="sd">        2. Evaluation: Compare and identify the best and worst performing functions</span>
+<span class="sd">        3. Iterative Refinement: Progressively improve the worst-performing function</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            task_description (str): Detailed description of the task</span>
-<span class="sd">            environment_type (str): Type of environment (2D/3D, robotics, etc.)</span>
+<span class="sd">            task_description (str): A detailed description of the task or environment </span>
+<span class="sd">                                    for which the reward function is being generated.</span>
+<span class="sd">            iterations (int, optional): Number of refinement iterations to perform. </span>
+<span class="sd">                                        Defaults to 1.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Callable: Generated reward function</span>
+<span class="sd">            List[State]: A list of generated and refined reward function states, </span>
+<span class="sd">                        containing information about each function&#39;s performance </span>
+<span class="sd">                        and implementation.</span>
+
+<span class="sd">        Process Overview:\n</span>
+<span class="sd">        - Generates two initial reward functions using an LLM</span>
+<span class="sd">        - Evaluates these functions using a policy evaluation method</span>
+<span class="sd">        - Selects the worst-performing function for refinement</span>
+<span class="sd">        - Iteratively refines the function through self-refinement</span>
+<span class="sd">        - Tracks the evolution of reward functions in the memory</span>
+
+<span class="sd">        Detailed Workflow:\n</span>
+<span class="sd">        1. Generate two initial reward functions</span>
+<span class="sd">        - Uses a predefined prompt template</span>
+<span class="sd">        - Applies configurable LLM generation options</span>
+<span class="sd">        - Compiles and tests each generated function</span>
+<span class="sd">        2. Evaluates initial functions</span>
+<span class="sd">        - Identifies best and worst performing functions</span>
+<span class="sd">        3. Iterative Refinement</span>
+<span class="sd">        - Applies self-refinement to the worst-performing function</span>
+<span class="sd">        - Re-evaluates after each refinement</span>
+<span class="sd">        - Repeats for specified number of iterations</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">        - Uses dynamic LLM configuration options</span>
+<span class="sd">        - Supports flexible environment types</span>
+<span class="sd">        - Provides a systematic approach to reward function generation</span>
+<span class="sd">        - Logging at various stages for debugging and tracking</span>
 <span class="sd">        &quot;&quot;&quot;</span>
         <span class="c1"># TODO Pourquoi additional_options ici et pas dans le constructeur ?</span>
         <span class="n">additional_options</span> <span class="o">=</span> <span class="p">{</span>
@@ -1621,7 +1726,7 @@
 <span class="sd">                - Callable: The compiled and validated reward function</span>
 <span class="sd">                - str: The original response code</span>
 
-<span class="sd">        Raises:</span>
+<span class="sd">        Raises:\n</span>
 <span class="sd">            Implicitly handles and attempts to recover from:</span>
 <span class="sd">            - ValueError: Invalid function definition</span>
 <span class="sd">            - SyntaxError: Syntax issues in the function</span>
@@ -1748,15 +1853,46 @@
 
     <span class="k">def</span> <span class="nf">self_refine_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">        Self-refinement of reward function based on performance</span>
+<span class="sd">        Iteratively improve a reward function using self-refinement techniques.</span>
+
+<span class="sd">        This method implements an intelligent self-refinement process for reward functions</span>
+<span class="sd">        by leveraging a Language Model (LLM) to analyze and improve the current function</span>
+<span class="sd">        based on its previous performance.</span>
+
+<span class="sd">        Key Objectives: \n</span>
+<span class="sd">        - Analyze current reward function performance</span>
+<span class="sd">        - Generate an improved version of the reward function</span>
+<span class="sd">        - Maintain the core task objectives while optimizing the reward signal</span>
 
 <span class="sd">        Args:</span>
-<span class="sd">            current_reward_func (Callable): Current reward function</span>
-<span class="sd">            performance_metrics (Dict): Performance evaluation metrics</span>
+<span class="sd">            idx (int): Index of the reward function in the memory to be refined.</span>
+<span class="sd">                    Typically the worst-performing function from previous evaluation.</span>
 
 <span class="sd">        Returns:</span>
-<span class="sd">            Callable: Refined reward function</span>
-<span class="sd">        &quot;&quot;&quot;</span>
+<span class="sd">            int: Index of the newly created refined reward function in the memory.</span>
+
+<span class="sd">        Refinement Process: \n</span>
+<span class="sd">        1. Construct a refinement prompt with:</span>
+<span class="sd">        - Current reward function code</span>
+<span class="sd">        - Performance metrics</span>
+<span class="sd">        - Explicit refinement goals</span>
+<span class="sd">        2. Generate a new reward function using LLM</span>
+<span class="sd">        3. Compile and validate the new function</span>
+<span class="sd">        4. Append the new function to memory</span>
+<span class="sd">        5. Return the index of the new function</span>
+
+<span class="sd">        Refinement Goals: \n</span>
+<span class="sd">        - Increase success rate of the policy</span>
+<span class="sd">        - Optimize the reward signal for better learning</span>
+<span class="sd">        - Preserve the original task objectives</span>
+<span class="sd">        - Improve overall performance</span>
+
+<span class="sd">        Notes: \n</span>
+<span class="sd">        - Uses the existing memory to track function evolution</span>
+<span class="sd">        - Leverages LLM for intelligent function refinement</span>
+<span class="sd">        - Provides a systematic approach to reward function improvement</span>
+<span class="sd">        - Maintains a history of function iterations</span>
+<span class="sd">    &quot;&quot;&quot;</span>
         <span class="n">refinement_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">        improve the reward function to:</span>
 <span class="s2">        - Increase success rate</span>
@@ -2107,51 +2243,51 @@ generate reward functions for reinforcement learning environments.</p>
 </details>
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">232</span>
-<span class="normal">233</span>
-<span class="normal">234</span>
-<span class="normal">235</span>
-<span class="normal">236</span>
-<span class="normal">237</span>
-<span class="normal">238</span>
-<span class="normal">239</span>
-<span class="normal">240</span>
-<span class="normal">241</span>
-<span class="normal">242</span>
-<span class="normal">243</span>
-<span class="normal">244</span>
-<span class="normal">245</span>
-<span class="normal">246</span>
-<span class="normal">247</span>
-<span class="normal">248</span>
-<span class="normal">249</span>
-<span class="normal">250</span>
-<span class="normal">251</span>
-<span class="normal">252</span>
-<span class="normal">253</span>
-<span class="normal">254</span>
-<span class="normal">255</span>
-<span class="normal">256</span>
-<span class="normal">257</span>
-<span class="normal">258</span>
-<span class="normal">259</span>
-<span class="normal">260</span>
-<span class="normal">261</span>
-<span class="normal">262</span>
-<span class="normal">263</span>
-<span class="normal">264</span>
-<span class="normal">265</span>
-<span class="normal">266</span>
-<span class="normal">267</span>
-<span class="normal">268</span>
-<span class="normal">269</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">269</span>
 <span class="normal">270</span>
 <span class="normal">271</span>
 <span class="normal">272</span>
 <span class="normal">273</span>
 <span class="normal">274</span>
 <span class="normal">275</span>
-<span class="normal">276</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">compile_reward_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span>
+<span class="normal">281</span>
+<span class="normal">282</span>
+<span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span>
+<span class="normal">295</span>
+<span class="normal">296</span>
+<span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span>
+<span class="normal">312</span>
+<span class="normal">313</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">compile_reward_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Compile a reward function dynamically from a string response.</span>
 
@@ -2287,30 +2423,30 @@ generate reward functions for reinforcement learning environments.</p>
 
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">364</span>
-<span class="normal">365</span>
-<span class="normal">366</span>
-<span class="normal">367</span>
-<span class="normal">368</span>
-<span class="normal">369</span>
-<span class="normal">370</span>
-<span class="normal">371</span>
-<span class="normal">372</span>
-<span class="normal">373</span>
-<span class="normal">374</span>
-<span class="normal">375</span>
-<span class="normal">376</span>
-<span class="normal">377</span>
-<span class="normal">378</span>
-<span class="normal">379</span>
-<span class="normal">380</span>
-<span class="normal">381</span>
-<span class="normal">382</span>
-<span class="normal">383</span>
-<span class="normal">384</span>
-<span class="normal">385</span>
-<span class="normal">386</span>
-<span class="normal">387</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">evaluate_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">idx2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">432</span>
+<span class="normal">433</span>
+<span class="normal">434</span>
+<span class="normal">435</span>
+<span class="normal">436</span>
+<span class="normal">437</span>
+<span class="normal">438</span>
+<span class="normal">439</span>
+<span class="normal">440</span>
+<span class="normal">441</span>
+<span class="normal">442</span>
+<span class="normal">443</span>
+<span class="normal">444</span>
+<span class="normal">445</span>
+<span class="normal">446</span>
+<span class="normal">447</span>
+<span class="normal">448</span>
+<span class="normal">449</span>
+<span class="normal">450</span>
+<span class="normal">451</span>
+<span class="normal">452</span>
+<span class="normal">453</span>
+<span class="normal">454</span>
+<span class="normal">455</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">evaluate_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx1</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="n">idx2</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Evaluate policy performance for multiple reward functions</span>
 
@@ -2351,7 +2487,15 @@ generate reward functions for reinforcement learning environments.</p>
 
     <div class="doc doc-contents ">
 
-        <p>Generate reward function using LLM</p>
+        <p>Generate and iteratively improve a reward function using a Language Model (LLM).</p>
+<p>This method implements a sophisticated reward function generation process 
+that involves multiple stages of creation, evaluation, and refinement.</p>
+<p>Key Stages:</p>
+<ol>
+<li>Initial Function Generation: Create two initial reward function candidates</li>
+<li>Evaluation: Compare and identify the best and worst performing functions</li>
+<li>Iterative Refinement: Progressively improve the worst-performing function</li>
+</ol>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -2374,7 +2518,8 @@ generate reward functions for reinforcement learning environments.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Detailed description of the task</p>
+                <p>A detailed description of the task or environment 
+                    for which the reward function is being generated.</p>
               </div>
             </td>
             <td>
@@ -2383,18 +2528,19 @@ generate reward functions for reinforcement learning environments.</p>
           </tr>
           <tr class="doc-section-item">
             <td>
-                <code>environment_type</code>
+                <code>iterations</code>
             </td>
             <td>
-                  <code>str</code>
+                  <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Type of environment (2D/3D, robotics, etc.)</p>
+                <p>Number of refinement iterations to perform. 
+                        Defaults to 1.</p>
               </div>
             </td>
             <td>
-                <em>required</em>
+                  <code>1</code>
             </td>
           </tr>
       </tbody>
@@ -2405,23 +2551,51 @@ generate reward functions for reinforcement learning environments.</p>
     <table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
+          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>Callable</code></td>            <td>
+            <td>
                   <code><span title="typing.List">List</span>[<span title="utils.State.State">State</span>]</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Generated reward function</p>
+                <p>List[State]: A list of generated and refined reward function states, 
+        containing information about each function's performance 
+        and implementation.</p>
               </div>
             </td>
           </tr>
       </tbody>
     </table>
+        <p>Process Overview:</p>
+<ul>
+<li>Generates two initial reward functions using an LLM</li>
+<li>Evaluates these functions using a policy evaluation method</li>
+<li>Selects the worst-performing function for refinement</li>
+<li>Iteratively refines the function through self-refinement</li>
+<li>Tracks the evolution of reward functions in the memory</li>
+</ul>
+<p>Detailed Workflow:</p>
+<ol>
+<li>Generate two initial reward functions</li>
+<li>Uses a predefined prompt template</li>
+<li>Applies configurable LLM generation options</li>
+<li>Compiles and tests each generated function</li>
+<li>Evaluates initial functions</li>
+<li>Identifies best and worst performing functions</li>
+<li>Iterative Refinement</li>
+<li>Applies self-refinement to the worst-performing function</li>
+<li>Re-evaluates after each refinement</li>
+<li>Repeats for specified number of iterations</li>
+</ol>
+<p>Notes:
+- Uses dynamic LLM configuration options
+- Supports flexible environment types
+- Provides a systematic approach to reward function generation
+- Logging at various stages for debugging and tracking</p>
 
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
@@ -2498,18 +2672,92 @@ generate reward functions for reinforcement learning environments.</p>
 <span class="normal">136</span>
 <span class="normal">137</span>
 <span class="normal">138</span>
-<span class="normal">139</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate_reward_function</span><span class="p">(</span>
+<span class="normal">139</span>
+<span class="normal">140</span>
+<span class="normal">141</span>
+<span class="normal">142</span>
+<span class="normal">143</span>
+<span class="normal">144</span>
+<span class="normal">145</span>
+<span class="normal">146</span>
+<span class="normal">147</span>
+<span class="normal">148</span>
+<span class="normal">149</span>
+<span class="normal">150</span>
+<span class="normal">151</span>
+<span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">generate_reward_function</span><span class="p">(</span>
     <span class="bp">self</span><span class="p">,</span> <span class="n">task_description</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">iterations</span><span class="p">:</span> <span class="nb">int</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">State</span><span class="p">]:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Generate reward function using LLM</span>
+<span class="sd">    Generate and iteratively improve a reward function using a Language Model (LLM).</span>
+
+<span class="sd">    This method implements a sophisticated reward function generation process </span>
+<span class="sd">    that involves multiple stages of creation, evaluation, and refinement.</span>
+
+<span class="sd">    Key Stages:\n</span>
+<span class="sd">    1. Initial Function Generation: Create two initial reward function candidates</span>
+<span class="sd">    2. Evaluation: Compare and identify the best and worst performing functions</span>
+<span class="sd">    3. Iterative Refinement: Progressively improve the worst-performing function</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        task_description (str): Detailed description of the task</span>
-<span class="sd">        environment_type (str): Type of environment (2D/3D, robotics, etc.)</span>
+<span class="sd">        task_description (str): A detailed description of the task or environment </span>
+<span class="sd">                                for which the reward function is being generated.</span>
+<span class="sd">        iterations (int, optional): Number of refinement iterations to perform. </span>
+<span class="sd">                                    Defaults to 1.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Callable: Generated reward function</span>
+<span class="sd">        List[State]: A list of generated and refined reward function states, </span>
+<span class="sd">                    containing information about each function&#39;s performance </span>
+<span class="sd">                    and implementation.</span>
+
+<span class="sd">    Process Overview:\n</span>
+<span class="sd">    - Generates two initial reward functions using an LLM</span>
+<span class="sd">    - Evaluates these functions using a policy evaluation method</span>
+<span class="sd">    - Selects the worst-performing function for refinement</span>
+<span class="sd">    - Iteratively refines the function through self-refinement</span>
+<span class="sd">    - Tracks the evolution of reward functions in the memory</span>
+
+<span class="sd">    Detailed Workflow:\n</span>
+<span class="sd">    1. Generate two initial reward functions</span>
+<span class="sd">    - Uses a predefined prompt template</span>
+<span class="sd">    - Applies configurable LLM generation options</span>
+<span class="sd">    - Compiles and tests each generated function</span>
+<span class="sd">    2. Evaluates initial functions</span>
+<span class="sd">    - Identifies best and worst performing functions</span>
+<span class="sd">    3. Iterative Refinement</span>
+<span class="sd">    - Applies self-refinement to the worst-performing function</span>
+<span class="sd">    - Re-evaluates after each refinement</span>
+<span class="sd">    - Repeats for specified number of iterations</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">    - Uses dynamic LLM configuration options</span>
+<span class="sd">    - Supports flexible environment types</span>
+<span class="sd">    - Provides a systematic approach to reward function generation</span>
+<span class="sd">    - Logging at various stages for debugging and tracking</span>
 <span class="sd">    &quot;&quot;&quot;</span>
     <span class="c1"># TODO Pourquoi additional_options ici et pas dans le constructeur ?</span>
     <span class="n">additional_options</span> <span class="o">=</span> <span class="p">{</span>
@@ -2684,35 +2932,35 @@ by performing the following operations:</p>
 </details>
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">141</span>
-<span class="normal">142</span>
-<span class="normal">143</span>
-<span class="normal">144</span>
-<span class="normal">145</span>
-<span class="normal">146</span>
-<span class="normal">147</span>
-<span class="normal">148</span>
-<span class="normal">149</span>
-<span class="normal">150</span>
-<span class="normal">151</span>
-<span class="normal">152</span>
-<span class="normal">153</span>
-<span class="normal">154</span>
-<span class="normal">155</span>
-<span class="normal">156</span>
-<span class="normal">157</span>
-<span class="normal">158</span>
-<span class="normal">159</span>
-<span class="normal">160</span>
-<span class="normal">161</span>
-<span class="normal">162</span>
-<span class="normal">163</span>
-<span class="normal">164</span>
-<span class="normal">165</span>
-<span class="normal">166</span>
-<span class="normal">167</span>
-<span class="normal">168</span>
-<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_code</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Clean and validate a code response by removing code block markers and ensuring a function definition.</span>
 
@@ -2840,59 +3088,12 @@ by performing the following operations:</p>
           </tr>
       </tbody>
     </table>
-
-
-<p><span class="doc-section-title">Raises:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                  <code>Implicitly handles and attempts to recover from</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                  <code>-ValueError</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Invalid function definition</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                  <code>-SyntaxError</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Syntax issues in the function</p>
-              </div>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                  <code>-RuntimeError</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Execution problems during function testing</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
+        <p>Raises:</p>
+<pre><code>Implicitly handles and attempts to recover from:
+- ValueError: Invalid function definition
+- SyntaxError: Syntax issues in the function
+- RuntimeError: Execution problems during function testing
+</code></pre>
 
 
 <details class="note" open>
@@ -2905,44 +3106,7 @@ by performing the following operations:</p>
 </details>
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">171</span>
-<span class="normal">172</span>
-<span class="normal">173</span>
-<span class="normal">174</span>
-<span class="normal">175</span>
-<span class="normal">176</span>
-<span class="normal">177</span>
-<span class="normal">178</span>
-<span class="normal">179</span>
-<span class="normal">180</span>
-<span class="normal">181</span>
-<span class="normal">182</span>
-<span class="normal">183</span>
-<span class="normal">184</span>
-<span class="normal">185</span>
-<span class="normal">186</span>
-<span class="normal">187</span>
-<span class="normal">188</span>
-<span class="normal">189</span>
-<span class="normal">190</span>
-<span class="normal">191</span>
-<span class="normal">192</span>
-<span class="normal">193</span>
-<span class="normal">194</span>
-<span class="normal">195</span>
-<span class="normal">196</span>
-<span class="normal">197</span>
-<span class="normal">198</span>
-<span class="normal">199</span>
-<span class="normal">200</span>
-<span class="normal">201</span>
-<span class="normal">202</span>
-<span class="normal">203</span>
-<span class="normal">204</span>
-<span class="normal">205</span>
-<span class="normal">206</span>
-<span class="normal">207</span>
-<span class="normal">208</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">208</span>
 <span class="normal">209</span>
 <span class="normal">210</span>
 <span class="normal">211</span>
@@ -2964,7 +3128,44 @@ by performing the following operations:</p>
 <span class="normal">227</span>
 <span class="normal">228</span>
 <span class="normal">229</span>
-<span class="normal">230</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_runnable_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">get_runnable_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">response</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">error</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Process and validate a reward function for a gym environment.</span>
 
@@ -2985,7 +3186,7 @@ by performing the following operations:</p>
 <span class="sd">            - Callable: The compiled and validated reward function</span>
 <span class="sd">            - str: The original response code</span>
 
-<span class="sd">    Raises:</span>
+<span class="sd">    Raises:\n</span>
 <span class="sd">        Implicitly handles and attempts to recover from:</span>
 <span class="sd">        - ValueError: Invalid function definition</span>
 <span class="sd">        - SyntaxError: Syntax issues in the function</span>
@@ -3041,7 +3242,16 @@ by performing the following operations:</p>
 
     <div class="doc doc-contents ">
 
-        <p>Self-refinement of reward function based on performance</p>
+        <p>Iteratively improve a reward function using self-refinement techniques.</p>
+<p>This method implements an intelligent self-refinement process for reward functions
+by leveraging a Language Model (LLM) to analyze and improve the current function
+based on its previous performance.</p>
+<p>Key Objectives: </p>
+<ul>
+<li>Analyze current reward function performance</li>
+<li>Generate an improved version of the reward function</li>
+<li>Maintain the core task objectives while optimizing the reward signal</li>
+</ul>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -3057,30 +3267,15 @@ by performing the following operations:</p>
       <tbody>
           <tr class="doc-section-item">
             <td>
-                <code>current_reward_func</code>
+                <code>idx</code>
             </td>
             <td>
-                  <code><span title="typing.Callable">Callable</span></code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Current reward function</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>performance_metrics</code>
-            </td>
-            <td>
-                  <code><span title="typing.Dict">Dict</span></code>
+                  <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Performance evaluation metrics</p>
+                <p>Index of the reward function in the memory to be refined.
+    Typically the worst-performing function from previous evaluation.</p>
               </div>
             </td>
             <td>
@@ -3101,61 +3296,148 @@ by performing the following operations:</p>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>Callable</code></td>            <td>
+<td><code>int</code></td>            <td>
                   <code><span title="typing.Callable">Callable</span></code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>Refined reward function</p>
+                <p>Index of the newly created refined reward function in the memory.</p>
               </div>
             </td>
           </tr>
       </tbody>
     </table>
+        <p>Refinement Process: </p>
+<ol>
+<li>Construct a refinement prompt with:</li>
+<li>Current reward function code</li>
+<li>Performance metrics</li>
+<li>Explicit refinement goals</li>
+<li>Generate a new reward function using LLM</li>
+<li>Compile and validate the new function</li>
+<li>Append the new function to memory</li>
+<li>Return the index of the new function</li>
+</ol>
+<p>Refinement Goals: </p>
+<ul>
+<li>Increase success rate of the policy</li>
+<li>Optimize the reward signal for better learning</li>
+<li>Preserve the original task objectives</li>
+<li>Improve overall performance</li>
+</ul>
+<p>Notes: </p>
+<ul>
+<li>Uses the existing memory to track function evolution</li>
+<li>Leverages LLM for intelligent function refinement</li>
+<li>Provides a systematic approach to reward function improvement</li>
+<li>Maintains a history of function iterations</li>
+</ul>
 
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">317</span>
-<span class="normal">318</span>
-<span class="normal">319</span>
-<span class="normal">320</span>
-<span class="normal">321</span>
-<span class="normal">322</span>
-<span class="normal">323</span>
-<span class="normal">324</span>
-<span class="normal">325</span>
-<span class="normal">326</span>
-<span class="normal">327</span>
-<span class="normal">328</span>
-<span class="normal">329</span>
-<span class="normal">330</span>
-<span class="normal">331</span>
-<span class="normal">332</span>
-<span class="normal">333</span>
-<span class="normal">334</span>
-<span class="normal">335</span>
-<span class="normal">336</span>
-<span class="normal">337</span>
-<span class="normal">338</span>
-<span class="normal">339</span>
-<span class="normal">340</span>
-<span class="normal">341</span>
-<span class="normal">342</span>
-<span class="normal">343</span>
-<span class="normal">344</span>
-<span class="normal">345</span>
-<span class="normal">346</span>
-<span class="normal">347</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">self_refine_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">354</span>
+<span class="normal">355</span>
+<span class="normal">356</span>
+<span class="normal">357</span>
+<span class="normal">358</span>
+<span class="normal">359</span>
+<span class="normal">360</span>
+<span class="normal">361</span>
+<span class="normal">362</span>
+<span class="normal">363</span>
+<span class="normal">364</span>
+<span class="normal">365</span>
+<span class="normal">366</span>
+<span class="normal">367</span>
+<span class="normal">368</span>
+<span class="normal">369</span>
+<span class="normal">370</span>
+<span class="normal">371</span>
+<span class="normal">372</span>
+<span class="normal">373</span>
+<span class="normal">374</span>
+<span class="normal">375</span>
+<span class="normal">376</span>
+<span class="normal">377</span>
+<span class="normal">378</span>
+<span class="normal">379</span>
+<span class="normal">380</span>
+<span class="normal">381</span>
+<span class="normal">382</span>
+<span class="normal">383</span>
+<span class="normal">384</span>
+<span class="normal">385</span>
+<span class="normal">386</span>
+<span class="normal">387</span>
+<span class="normal">388</span>
+<span class="normal">389</span>
+<span class="normal">390</span>
+<span class="normal">391</span>
+<span class="normal">392</span>
+<span class="normal">393</span>
+<span class="normal">394</span>
+<span class="normal">395</span>
+<span class="normal">396</span>
+<span class="normal">397</span>
+<span class="normal">398</span>
+<span class="normal">399</span>
+<span class="normal">400</span>
+<span class="normal">401</span>
+<span class="normal">402</span>
+<span class="normal">403</span>
+<span class="normal">404</span>
+<span class="normal">405</span>
+<span class="normal">406</span>
+<span class="normal">407</span>
+<span class="normal">408</span>
+<span class="normal">409</span>
+<span class="normal">410</span>
+<span class="normal">411</span>
+<span class="normal">412</span>
+<span class="normal">413</span>
+<span class="normal">414</span>
+<span class="normal">415</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">self_refine_reward</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">idx</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Callable</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Self-refinement of reward function based on performance</span>
+<span class="sd">    Iteratively improve a reward function using self-refinement techniques.</span>
+
+<span class="sd">    This method implements an intelligent self-refinement process for reward functions</span>
+<span class="sd">    by leveraging a Language Model (LLM) to analyze and improve the current function</span>
+<span class="sd">    based on its previous performance.</span>
+
+<span class="sd">    Key Objectives: \n</span>
+<span class="sd">    - Analyze current reward function performance</span>
+<span class="sd">    - Generate an improved version of the reward function</span>
+<span class="sd">    - Maintain the core task objectives while optimizing the reward signal</span>
 
 <span class="sd">    Args:</span>
-<span class="sd">        current_reward_func (Callable): Current reward function</span>
-<span class="sd">        performance_metrics (Dict): Performance evaluation metrics</span>
+<span class="sd">        idx (int): Index of the reward function in the memory to be refined.</span>
+<span class="sd">                Typically the worst-performing function from previous evaluation.</span>
 
 <span class="sd">    Returns:</span>
-<span class="sd">        Callable: Refined reward function</span>
-<span class="sd">    &quot;&quot;&quot;</span>
+<span class="sd">        int: Index of the newly created refined reward function in the memory.</span>
+
+<span class="sd">    Refinement Process: \n</span>
+<span class="sd">    1. Construct a refinement prompt with:</span>
+<span class="sd">    - Current reward function code</span>
+<span class="sd">    - Performance metrics</span>
+<span class="sd">    - Explicit refinement goals</span>
+<span class="sd">    2. Generate a new reward function using LLM</span>
+<span class="sd">    3. Compile and validate the new function</span>
+<span class="sd">    4. Append the new function to memory</span>
+<span class="sd">    5. Return the index of the new function</span>
+
+<span class="sd">    Refinement Goals: \n</span>
+<span class="sd">    - Increase success rate of the policy</span>
+<span class="sd">    - Optimize the reward signal for better learning</span>
+<span class="sd">    - Preserve the original task objectives</span>
+<span class="sd">    - Improve overall performance</span>
+
+<span class="sd">    Notes: \n</span>
+<span class="sd">    - Uses the existing memory to track function evolution</span>
+<span class="sd">    - Leverages LLM for intelligent function refinement</span>
+<span class="sd">    - Provides a systematic approach to reward function improvement</span>
+<span class="sd">    - Maintains a history of function iterations</span>
+<span class="sd">&quot;&quot;&quot;</span>
     <span class="n">refinement_prompt</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;&quot;&quot;</span>
 <span class="s2">    improve the reward function to:</span>
 <span class="s2">    - Increase success rate</span>
@@ -3310,44 +3592,44 @@ This includes any exceptions that occur during function invocation.</p>
 </details>
             <details class="quote">
               <summary>Source code in <code>src/VIRAL.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">278</span>
-<span class="normal">279</span>
-<span class="normal">280</span>
-<span class="normal">281</span>
-<span class="normal">282</span>
-<span class="normal">283</span>
-<span class="normal">284</span>
-<span class="normal">285</span>
-<span class="normal">286</span>
-<span class="normal">287</span>
-<span class="normal">288</span>
-<span class="normal">289</span>
-<span class="normal">290</span>
-<span class="normal">291</span>
-<span class="normal">292</span>
-<span class="normal">293</span>
-<span class="normal">294</span>
-<span class="normal">295</span>
-<span class="normal">296</span>
-<span class="normal">297</span>
-<span class="normal">298</span>
-<span class="normal">299</span>
-<span class="normal">300</span>
-<span class="normal">301</span>
-<span class="normal">302</span>
-<span class="normal">303</span>
-<span class="normal">304</span>
-<span class="normal">305</span>
-<span class="normal">306</span>
-<span class="normal">307</span>
-<span class="normal">308</span>
-<span class="normal">309</span>
-<span class="normal">310</span>
-<span class="normal">311</span>
-<span class="normal">312</span>
-<span class="normal">313</span>
-<span class="normal">314</span>
-<span class="normal">315</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_reward_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reward_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span>
+<span class="normal">323</span>
+<span class="normal">324</span>
+<span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span>
+<span class="normal">334</span>
+<span class="normal">335</span>
+<span class="normal">336</span>
+<span class="normal">337</span>
+<span class="normal">338</span>
+<span class="normal">339</span>
+<span class="normal">340</span>
+<span class="normal">341</span>
+<span class="normal">342</span>
+<span class="normal">343</span>
+<span class="normal">344</span>
+<span class="normal">345</span>
+<span class="normal">346</span>
+<span class="normal">347</span>
+<span class="normal">348</span>
+<span class="normal">349</span>
+<span class="normal">350</span>
+<span class="normal">351</span>
+<span class="normal">352</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">test_reward_function</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reward_function</span><span class="p">:</span> <span class="n">Callable</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Test the compiled reward function with provided inputs to validate its execution.</span>
 
