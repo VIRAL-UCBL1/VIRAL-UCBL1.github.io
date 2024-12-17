@@ -568,6 +568,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#src.utils.State.State" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__--creating-a-new-state-for-a-reward-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a new state for a reward function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__--updating-state-with-training-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating state with training results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -781,6 +829,54 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#src.utils.State.State" class="md-nav__link">
+    <span class="md-ellipsis">
+      State
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="State">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="__init__">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__--creating-a-new-state-for-a-reward-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      Creating a new state for a reward function
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.utils.State.State.__init__--updating-state-with-training-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      Updating state with training results
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -836,6 +932,517 @@
 
 
 
+
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.utils.State.State" class="doc doc-heading">
+            <code>State</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>src/utils/State.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 7</span>
+<span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span>
+<span class="normal">75</span>
+<span class="normal">76</span>
+<span class="normal">77</span>
+<span class="normal">78</span>
+<span class="normal">79</span>
+<span class="normal">80</span>
+<span class="normal">81</span>
+<span class="normal">82</span>
+<span class="normal">83</span>
+<span class="normal">84</span>
+<span class="normal">85</span>
+<span class="normal">86</span>
+<span class="normal">87</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span> <span class="nc">State</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">idx</span><span class="p">,</span>
+        <span class="n">reward_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">reward_func_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">policy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">perfomances</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Represents a state in the reward function generation and evaluation process.</span>
+
+<span class="sd">        This class encapsulates the key components of a reward function&#39;s lifecycle,</span>
+<span class="sd">        tracking its index, implementation, policy, and performance metrics.</span>
+
+<span class="sd">        Attributes:</span>
+<span class="sd">            idx (int): Unique identifier for the state.</span>
+<span class="sd">            reward_func (Callable, optional): The compiled reward function.</span>
+<span class="sd">            reward_func_str (str, optional): String representation of the reward function.</span>
+<span class="sd">            policy (object, optional): The policy associated with the reward function.</span>
+<span class="sd">            performances (dict, optional): Performance metrics of the reward function.</span>
+
+<span class="sd">        Key Characteristics:</span>
+<span class="sd">            - Tracks the evolution of reward functions</span>
+<span class="sd">            - Provides a snapshot of a specific iteration</span>
+<span class="sd">            - Allows for dynamic updating of policy and performance</span>
+
+<span class="sd">        Initialization Constraints:</span>
+<span class="sd">            - Initial state (idx=0) cannot have a reward function</span>
+<span class="sd">            - Non-initial states must have both a reward function and its string representation</span>
+
+<span class="sd">        Methods:</span>
+<span class="sd">            - set_policy(policy): Update the associated policy</span>
+<span class="sd">            - set_performances(performances): Update performance metrics</span>
+<span class="sd">            - __repr__(): Provide a human-readable string representation of the state</span>
+
+<span class="sd">        Example:</span>
+<span class="sd">            # Creating a new state for a reward function</span>
+<span class="sd">            state = State(</span>
+<span class="sd">                idx=1, </span>
+<span class="sd">                reward_func=my_reward_func, </span>
+<span class="sd">                reward_func_str=&quot;def reward_func(...):&quot;,</span>
+<span class="sd">                policy=None,</span>
+<span class="sd">                perfomances=None</span>
+<span class="sd">            )</span>
+
+<span class="sd">            # Updating state with training results</span>
+<span class="sd">            state.set_policy(trained_policy)</span>
+<span class="sd">            state.set_performances({</span>
+<span class="sd">                &#39;success_rate&#39;: 0.75,</span>
+<span class="sd">                &#39;average_reward&#39;: 10.5</span>
+<span class="sd">            })</span>
+
+<span class="sd">        Notes:</span>
+<span class="sd">            - Designed for tracking reward function iterations</span>
+<span class="sd">            - Provides flexibility in managing function states</span>
+<span class="sd">            - Supports logging and debugging of reward function generation process</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">reward_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reward_func_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;the inital state don&#39;t take reward function&quot;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">reward_func</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reward_func_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;you need to give a reward function to the state&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reward_func</span> <span class="o">=</span> <span class="n">reward_func</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">reward_func_str</span> <span class="o">=</span> <span class="n">reward_func_str</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">performances</span> <span class="o">=</span> <span class="n">perfomances</span>
+
+    <span class="k">def</span> <span class="nf">set_policy</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">policy</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span>
+
+    <span class="k">def</span> <span class="nf">set_performances</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">performances</span><span class="p">:</span> <span class="nb">dict</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">performances</span> <span class="o">=</span> <span class="n">performances</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">performances</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="nb">repr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;state </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s2">: </span><span class="se">\n</span><span class="s2">reward function: </span><span class="se">\n\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reward_func_str</span><span class="si">}</span><span class="se">\n\n</span><span class="s2"> isn&#39;t trained yet&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="nb">repr</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;state </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">idx</span><span class="si">}</span><span class="s2">: </span><span class="se">\n</span><span class="s2">reward function: </span><span class="se">\n\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">reward_func_str</span><span class="si">}</span><span class="se">\n\n</span><span class="s2"> Performances: </span><span class="se">\n\n</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">performances</span><span class="si">}</span><span class="se">\n\n</span><span class="s2"> Policy: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">policy</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="k">return</span> <span class="nb">repr</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.utils.State.State.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span> <span class="n">reward_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">reward_func_str</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">policy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">perfomances</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Represents a state in the reward function generation and evaluation process.</p>
+<p>This class encapsulates the key components of a reward function's lifecycle,
+tracking its index, implementation, policy, and performance metrics.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="src.utils.State.State.__init__.idx">idx</span></code></td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Unique identifier for the state.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.utils.State.State.__init__.reward_func">reward_func</span></code></td>
+            <td>
+                  <code><span title="typing.Callable">Callable</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The compiled reward function.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.utils.State.State.__init__.reward_func_str">reward_func_str</span></code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>String representation of the reward function.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.utils.State.State.__init__.policy">policy</span></code></td>
+            <td>
+                  <code>object</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The policy associated with the reward function.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.utils.State.State.__init__.performances">performances</span></code></td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Performance metrics of the reward function.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<details class="key-characteristics" open>
+  <summary>Key Characteristics</summary>
+  <ul>
+<li>Tracks the evolution of reward functions</li>
+<li>Provides a snapshot of a specific iteration</li>
+<li>Allows for dynamic updating of policy and performance</li>
+</ul>
+</details>
+
+<details class="initialization-constraints" open>
+  <summary>Initialization Constraints</summary>
+  <ul>
+<li>Initial state (idx=0) cannot have a reward function</li>
+<li>Non-initial states must have both a reward function and its string representation</li>
+</ul>
+</details>
+
+<p><span class="doc-section-title">Functions:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+            <tr class="doc-section-item">
+              <td><code><span title="src.utils.State.State.__init__.- set_policy">- set_policy</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Update the associated policy</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="src.utils.State.State.__init__.- set_performances">- set_performances</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Update performance metrics</p>
+                </div>
+              </td>
+            </tr>
+            <tr class="doc-section-item">
+              <td><code><span title="src.utils.State.State.__init__.- __repr__">- __repr__</span></code></td>
+              <td>
+                <div class="doc-md-description">
+                  <p>Provide a human-readable string representation of the state</p>
+                </div>
+              </td>
+            </tr>
+      </tbody>
+    </table>
+
+
+<details class="example" open>
+  <summary>Example</summary>
+  <h4 id="src.utils.State.State.__init__--creating-a-new-state-for-a-reward-function">Creating a new state for a reward function</h4>
+<p>state = State(
+    idx=1, 
+    reward_func=my_reward_func, 
+    reward_func_str="def reward_func(...):",
+    policy=None,
+    perfomances=None
+)</p>
+<h4 id="src.utils.State.State.__init__--updating-state-with-training-results">Updating state with training results</h4>
+<p>state.set_policy(trained_policy)
+state.set_performances({
+    'success_rate': 0.75,
+    'average_reward': 10.5
+})</p>
+</details>
+
+<details class="notes" open>
+  <summary>Notes</summary>
+  <ul>
+<li>Designed for tracking reward function iterations</li>
+<li>Provides flexibility in managing function states</li>
+<li>Supports logging and debugging of reward function generation process</li>
+</ul>
+</details>
+            <details class="quote">
+              <summary>Source code in <code>src/utils/State.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 8</span>
+<span class="normal"> 9</span>
+<span class="normal">10</span>
+<span class="normal">11</span>
+<span class="normal">12</span>
+<span class="normal">13</span>
+<span class="normal">14</span>
+<span class="normal">15</span>
+<span class="normal">16</span>
+<span class="normal">17</span>
+<span class="normal">18</span>
+<span class="normal">19</span>
+<span class="normal">20</span>
+<span class="normal">21</span>
+<span class="normal">22</span>
+<span class="normal">23</span>
+<span class="normal">24</span>
+<span class="normal">25</span>
+<span class="normal">26</span>
+<span class="normal">27</span>
+<span class="normal">28</span>
+<span class="normal">29</span>
+<span class="normal">30</span>
+<span class="normal">31</span>
+<span class="normal">32</span>
+<span class="normal">33</span>
+<span class="normal">34</span>
+<span class="normal">35</span>
+<span class="normal">36</span>
+<span class="normal">37</span>
+<span class="normal">38</span>
+<span class="normal">39</span>
+<span class="normal">40</span>
+<span class="normal">41</span>
+<span class="normal">42</span>
+<span class="normal">43</span>
+<span class="normal">44</span>
+<span class="normal">45</span>
+<span class="normal">46</span>
+<span class="normal">47</span>
+<span class="normal">48</span>
+<span class="normal">49</span>
+<span class="normal">50</span>
+<span class="normal">51</span>
+<span class="normal">52</span>
+<span class="normal">53</span>
+<span class="normal">54</span>
+<span class="normal">55</span>
+<span class="normal">56</span>
+<span class="normal">57</span>
+<span class="normal">58</span>
+<span class="normal">59</span>
+<span class="normal">60</span>
+<span class="normal">61</span>
+<span class="normal">62</span>
+<span class="normal">63</span>
+<span class="normal">64</span>
+<span class="normal">65</span>
+<span class="normal">66</span>
+<span class="normal">67</span>
+<span class="normal">68</span>
+<span class="normal">69</span>
+<span class="normal">70</span>
+<span class="normal">71</span>
+<span class="normal">72</span>
+<span class="normal">73</span>
+<span class="normal">74</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">idx</span><span class="p">,</span>
+    <span class="n">reward_func</span><span class="p">:</span> <span class="n">Callable</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">reward_func_str</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">policy</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">perfomances</span><span class="p">:</span> <span class="nb">dict</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Represents a state in the reward function generation and evaluation process.</span>
+
+<span class="sd">    This class encapsulates the key components of a reward function&#39;s lifecycle,</span>
+<span class="sd">    tracking its index, implementation, policy, and performance metrics.</span>
+
+<span class="sd">    Attributes:</span>
+<span class="sd">        idx (int): Unique identifier for the state.</span>
+<span class="sd">        reward_func (Callable, optional): The compiled reward function.</span>
+<span class="sd">        reward_func_str (str, optional): String representation of the reward function.</span>
+<span class="sd">        policy (object, optional): The policy associated with the reward function.</span>
+<span class="sd">        performances (dict, optional): Performance metrics of the reward function.</span>
+
+<span class="sd">    Key Characteristics:</span>
+<span class="sd">        - Tracks the evolution of reward functions</span>
+<span class="sd">        - Provides a snapshot of a specific iteration</span>
+<span class="sd">        - Allows for dynamic updating of policy and performance</span>
+
+<span class="sd">    Initialization Constraints:</span>
+<span class="sd">        - Initial state (idx=0) cannot have a reward function</span>
+<span class="sd">        - Non-initial states must have both a reward function and its string representation</span>
+
+<span class="sd">    Methods:</span>
+<span class="sd">        - set_policy(policy): Update the associated policy</span>
+<span class="sd">        - set_performances(performances): Update performance metrics</span>
+<span class="sd">        - __repr__(): Provide a human-readable string representation of the state</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">        # Creating a new state for a reward function</span>
+<span class="sd">        state = State(</span>
+<span class="sd">            idx=1, </span>
+<span class="sd">            reward_func=my_reward_func, </span>
+<span class="sd">            reward_func_str=&quot;def reward_func(...):&quot;,</span>
+<span class="sd">            policy=None,</span>
+<span class="sd">            perfomances=None</span>
+<span class="sd">        )</span>
+
+<span class="sd">        # Updating state with training results</span>
+<span class="sd">        state.set_policy(trained_policy)</span>
+<span class="sd">        state.set_performances({</span>
+<span class="sd">            &#39;success_rate&#39;: 0.75,</span>
+<span class="sd">            &#39;average_reward&#39;: 10.5</span>
+<span class="sd">        })</span>
+
+<span class="sd">    Notes:</span>
+<span class="sd">        - Designed for tracking reward function iterations</span>
+<span class="sd">        - Provides flexibility in managing function states</span>
+<span class="sd">        - Supports logging and debugging of reward function generation process</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+    <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">=</span> <span class="n">idx</span>
+    <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">reward_func</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reward_func_str</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;the inital state don&#39;t take reward function&quot;</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">idx</span> <span class="o">!=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="p">(</span><span class="n">reward_func</span> <span class="ow">is</span> <span class="kc">None</span> <span class="ow">or</span> <span class="n">reward_func_str</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s2">&quot;you need to give a reward function to the state&quot;</span><span class="p">)</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">reward_func</span> <span class="o">=</span> <span class="n">reward_func</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">reward_func_str</span> <span class="o">=</span> <span class="n">reward_func_str</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">policy</span> <span class="o">=</span> <span class="n">policy</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">performances</span> <span class="o">=</span> <span class="n">perfomances</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
 
 
 
