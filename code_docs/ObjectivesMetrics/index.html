@@ -872,67 +872,6 @@ Calculates a score for the given state on a particular observation of the CartPo
 <p>:param state: The state of the CartPole environment.
 :return: a table of tuples containing the string name of the metric and the value of the metric.</p>
 
-            <details class="quote">
-              <summary>Source code in <code>src/utils/ObjectivesMetrics.py</code></summary>
-              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"> 1</span>
-<span class="normal"> 2</span>
-<span class="normal"> 3</span>
-<span class="normal"> 4</span>
-<span class="normal"> 5</span>
-<span class="normal"> 6</span>
-<span class="normal"> 7</span>
-<span class="normal"> 8</span>
-<span class="normal"> 9</span>
-<span class="normal">10</span>
-<span class="normal">11</span>
-<span class="normal">12</span>
-<span class="normal">13</span>
-<span class="normal">14</span>
-<span class="normal">15</span>
-<span class="normal">16</span>
-<span class="normal">17</span>
-<span class="normal">18</span>
-<span class="normal">19</span>
-<span class="normal">20</span>
-<span class="normal">21</span>
-<span class="normal">22</span>
-<span class="normal">23</span>
-<span class="normal">24</span>
-<span class="normal">25</span>
-<span class="normal">26</span>
-<span class="normal">27</span>
-<span class="normal">28</span>
-<span class="normal">29</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span> <span class="nf">objective_metric_CartPole</span><span class="p">(</span><span class="n">states</span><span class="p">):</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Objective metric for the CartPole environment.</span>
-<span class="sd">    Calculates a score for the given state on a particular observation of the CartPole environment.</span>
-
-<span class="sd">    :param state: The state of the CartPole environment.</span>
-<span class="sd">    :return: a table of tuples containing the string name of the metric and the value of the metric.</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-
-    <span class="c1"># Calculate the difference between the pole angle and the median of the pole angle range</span>
-    <span class="n">pole_angle_diff</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
-        <span class="n">pole_angle</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-        <span class="n">pole_angle_diff</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pole_angle</span><span class="p">)</span>
-    <span class="n">pole_angle_diff</span> <span class="o">=</span> <span class="n">pole_angle_diff</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
-
-    <span class="c1"># Calculate the difference between the pole position and the median of the pole position range</span>
-    <span class="n">pole_position_diff</span> <span class="o">=</span> <span class="mi">0</span>
-    <span class="k">for</span> <span class="n">state</span> <span class="ow">in</span> <span class="n">states</span><span class="p">:</span>
-        <span class="n">pole_position</span> <span class="o">=</span> <span class="n">state</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">pole_position_diff</span> <span class="o">+=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">pole_position</span><span class="p">)</span>
-    <span class="n">pole_position_diff</span> <span class="o">=</span> <span class="n">pole_position_diff</span> <span class="o">/</span> <span class="nb">len</span><span class="p">(</span><span class="n">states</span><span class="p">)</span>
-
-    <span class="n">result</span> <span class="o">=</span> <span class="p">[</span>
-        <span class="p">{</span><span class="s2">&quot;pole_angle_diff&quot;</span><span class="p">:</span> <span class="n">pole_angle_diff</span><span class="p">},</span>
-        <span class="p">{</span><span class="s2">&quot;pole_position_diff&quot;</span><span class="p">:</span> <span class="n">pole_position_diff</span><span class="p">},</span>
-    <span class="p">]</span>
-
-    <span class="k">return</span> <span class="n">result</span>
-</code></pre></div></td></tr></table></div>
-            </details>
     </div>
 
 </div>
