@@ -8,13 +8,13 @@
       
       
       
-        <link rel="canonical" href="https://viral-ucbl1.github.io/code_docs/RLAlgo/Reinforce/">
+        <link rel="canonical" href="https://viral-ucbl1.github.io/code_docs/Environments/Prompt/">
       
       
-        <link rel="prev" href="../DirectSearch/">
+        <link rel="prev" href="../LunarLander/">
       
       
-        <link rel="next" href="../../State/State/">
+        <link rel="next" href="../../LLM/GenCode/">
       
       
       <link rel="icon" href="../../../assets/images/favicon.png">
@@ -22,7 +22,7 @@
     
     
       
-        <title>Reinforce - VIRAL - Vision-grounded Integration for Reward design And Learning</title>
+        <title>Prompt - VIRAL - Vision-grounded Integration for Reward design And Learning</title>
       
     
     
@@ -76,7 +76,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#src.RLAlgo.Reinforce" class="md-skip">
+        <a href="#src.Environments.Prompt" class="md-skip">
           Skip to content
         </a>
       
@@ -110,7 +110,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Reinforce
+              Prompt
             
           </span>
         </div>
@@ -466,6 +466,8 @@
                 
   
   
+    
+  
   
   
     
@@ -480,11 +482,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="">
@@ -498,7 +500,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_3">
             <span class="md-nav__icon md-icon"></span>
             Environments
@@ -512,7 +514,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Environments/Algo/" class="md-nav__link">
+      <a href="../Algo/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -533,7 +535,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Environments/CartPole/" class="md-nav__link">
+      <a href="../CartPole/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -554,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Environments/EnvType/" class="md-nav__link">
+      <a href="../EnvType/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -575,7 +577,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../Environments/LunarLander/" class="md-nav__link">
+      <a href="../LunarLander/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -593,10 +595,28 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../Environments/Prompt/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    Prompt
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -605,6 +625,33 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#src.Environments.Prompt" class="md-nav__link">
+    <span class="md-ellipsis">
+      Prompt
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -829,8 +876,6 @@
                 
   
   
-    
-  
   
   
     
@@ -845,11 +890,11 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_6" >
         
           
           <label class="md-nav__link" for="__nav_3_6" id="__nav_3_6_label" tabindex="">
@@ -863,7 +908,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_3_6">
             <span class="md-nav__icon md-icon"></span>
             RLAlgo
@@ -877,7 +922,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../DirectSearch/" class="md-nav__link">
+      <a href="../../RLAlgo/DirectSearch/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -895,28 +940,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  <span class="md-ellipsis">
-    Reinforce
-  </span>
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../RLAlgo/Reinforce/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -925,138 +952,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reinforce
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reinforce
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Reinforce">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.__init__" class="md-nav__link">
-    <span class="md-ellipsis">
-      __init__
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.action" class="md-nav__link">
-    <span class="md-ellipsis">
-      action
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.calcul_retours_cumules" class="md-nav__link">
-    <span class="md-ellipsis">
-      calcul_retours_cumules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.forward" class="md-nav__link">
-    <span class="md-ellipsis">
-      forward
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.load" class="md-nav__link">
-    <span class="md-ellipsis">
-      load
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.loss" class="md-nav__link">
-    <span class="md-ellipsis">
-      loss
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.output" class="md-nav__link">
-    <span class="md-ellipsis">
-      output
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.save" class="md-nav__link">
-    <span class="md-ellipsis">
-      save
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.train" class="md-nav__link">
-    <span class="md-ellipsis">
-      train
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.trajectoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      trajectoire
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1359,116 +1254,11 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce" class="md-nav__link">
+  <a href="#src.Environments.Prompt" class="md-nav__link">
     <span class="md-ellipsis">
-      Reinforce
+      Prompt
     </span>
   </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce" class="md-nav__link">
-    <span class="md-ellipsis">
-      Reinforce
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Reinforce">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.__init__" class="md-nav__link">
-    <span class="md-ellipsis">
-      __init__
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.action" class="md-nav__link">
-    <span class="md-ellipsis">
-      action
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.calcul_retours_cumules" class="md-nav__link">
-    <span class="md-ellipsis">
-      calcul_retours_cumules
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.forward" class="md-nav__link">
-    <span class="md-ellipsis">
-      forward
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.load" class="md-nav__link">
-    <span class="md-ellipsis">
-      load
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.loss" class="md-nav__link">
-    <span class="md-ellipsis">
-      loss
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.output" class="md-nav__link">
-    <span class="md-ellipsis">
-      output
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.save" class="md-nav__link">
-    <span class="md-ellipsis">
-      save
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.train" class="md-nav__link">
-    <span class="md-ellipsis">
-      train
-    </span>
-  </a>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#src.RLAlgo.Reinforce.Reinforce.trajectoire" class="md-nav__link">
-    <span class="md-ellipsis">
-      trajectoire
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
   
 </li>
       
@@ -1487,7 +1277,7 @@
                   
 
   
-    <a href="https://github.com/VIRAL-UCBL1/VIRAL/edit/master/docs/code_docs/RLAlgo/Reinforce.md" title="Edit this page" class="md-content__button md-icon">
+    <a href="https://github.com/VIRAL-UCBL1/VIRAL/edit/master/docs/code_docs/Environments/Prompt.md" title="Edit this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg>
     </a>
@@ -1496,20 +1286,20 @@
     
       
     
-    <a href="https://github.com/VIRAL-UCBL1/VIRAL/raw/master/docs/code_docs/RLAlgo/Reinforce.md" title="View source of this page" class="md-content__button md-icon">
+    <a href="https://github.com/VIRAL-UCBL1/VIRAL/raw/master/docs/code_docs/Environments/Prompt.md" title="View source of this page" class="md-content__button md-icon">
       
       <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M17 18c.56 0 1 .44 1 1s-.44 1-1 1-1-.44-1-1 .44-1 1-1m0-3c-2.73 0-5.06 1.66-6 4 .94 2.34 3.27 4 6 4s5.06-1.66 6-4c-.94-2.34-3.27-4-6-4m0 6.5a2.5 2.5 0 0 1-2.5-2.5 2.5 2.5 0 0 1 2.5-2.5 2.5 2.5 0 0 1 2.5 2.5 2.5 2.5 0 0 1-2.5 2.5M9.27 20H6V4h7v5h5v4.07c.7.08 1.36.25 2 .49V8l-6-6H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h4.5a8.2 8.2 0 0 1-1.23-2"/></svg>
     </a>
   
 
 
-  <h1>Reinforce</h1>
+  <h1>Prompt</h1>
 
 <div class="doc doc-object doc-module">
 
 
 
-<a id="src.RLAlgo.Reinforce"></a>
+<a id="src.Environments.Prompt"></a>
     <div class="doc doc-contents first">
 
 
@@ -1527,334 +1317,6 @@
 
 
 
-
-<div class="doc doc-object doc-class">
-
-
-
-<h2 id="src.RLAlgo.Reinforce.Reinforce" class="doc doc-heading">
-            <code>Reinforce</code>
-
-
-</h2>
-
-
-    <div class="doc doc-contents ">
-            <p class="doc doc-class-bases">
-              Bases: <code><span title="torch.nn.Module">Module</span></code></p>
-
-
-
-
-
-
-
-
-
-
-  <div class="doc doc-children">
-
-
-
-
-
-
-
-
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.__init__" class="doc doc-heading">
-            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">couche_cachee</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">2000</span><span class="p">,</span> <span class="n">max_t</span><span class="o">=</span><span class="mi">1000</span><span class="p">,</span> <span class="n">gamma</span><span class="o">=</span><span class="mf">0.99</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>env: Environnement Gymnasium
-couche_cachee: Liste des tailles des couches cachées (exemple [64, 32])
-gamma: Facteur de discount pour le calcul des retours cumulés
-det: Si la politique est déterministe ou stochastique</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.action" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">action</span><span class="p">(</span><span class="n">etat</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Renvoi l'action à exécuter dans l'état et la log-proba de cette action.
-etat: un état de l'environnement
-return: action à exécuter et la log-proba de cette action</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.calcul_retours_cumules" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">calcul_retours_cumules</span><span class="p">(</span><span class="n">recompenses</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Calcule les retours cumulés pondérés par le facteur de discount gamma.
-recompenses: liste des récompenses obtenues lors d'une trajectoire
-return: liste des retours cumulés</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.forward" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">forward</span><span class="p">(</span><span class="n">etat</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Etat: un tenseur d'état (entrée)
-return: Distribution de probabilité sur les actions</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.load" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">load</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>load the model form file</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.loss" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">loss</span><span class="p">(</span><span class="n">log_probs</span><span class="p">,</span> <span class="n">retours_cumules</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Calcule la perte de type REINFORCE.
-log_probs: liste des log-probas des actions prises lors d'une trajectoire
-retours_cumules: liste des retours cumulés pondérés
-return: perte</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.output" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">output</span><span class="p">(</span><span class="n">etat</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Calcul l'action à exécuter dans l'état.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.save" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">save</span><span class="p">(</span><span class="n">file</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>save the model.</p>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.train" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">train</span><span class="p">(</span><span class="n">reward_func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">save_name</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">stop</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Entraîne la politique en utilisant l'algorithme REINFORCE tout en restaurant les paramètres initiaux.</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>reward_func</code>
-            </td>
-            <td>
-                  <code>callable</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Fonction de récompense personnalisée.</p>
-              </div>
-            </td>
-            <td>
-                  <code>None</code>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>nb_episodes</code>
-            </td>
-            <td>
-                  <code>int</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Nombre maximum d'épisodes.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>max_t</code>
-            </td>
-            <td>
-                  <code>int</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Nombre maximum de pas par épisode.</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-          <tr class="doc-section-item">
-            <td>
-                <code>save_name</code>
-            </td>
-            <td>
-                  <code>str</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>Chemin pour sauvegarder le modèle.</p>
-              </div>
-            </td>
-            <td>
-                  <code>&#39;&#39;</code>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-
-    <p><span class="doc-section-title">Returns:</span></p>
-    <table>
-      <thead>
-        <tr>
-<th>Name</th>          <th>Type</th>
-          <th>Description</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-<td><code>tuple</code></td>            <td>
-                  <code>tuple[dict, list, float, int]</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>(Paramètres entraînés, Historique des récompenses, Taux de succès, Nombre d'épisodes exécutés).</p>
-              </div>
-            </td>
-          </tr>
-      </tbody>
-    </table>
-
-    </div>
-
-</div>
-
-<div class="doc doc-object doc-function">
-
-
-<h3 id="src.RLAlgo.Reinforce.Reinforce.trajectoire" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">trajectoire</span><span class="p">(</span><span class="n">reward_fonc</span><span class="p">)</span></code>
-
-</h3>
-
-
-    <div class="doc doc-contents ">
-
-        <p>Simule une trajectoire dans l'environnement en utilisant la politique.
-env: Environnement Gymnasium
-max_t: nombre max de pas de la trajectoire
-return: liste des récompenses et liste des log-probas des actions prises et si la trajectoire est tronquée</p>
-
-    </div>
-
-</div>
-
-
-
-  </div>
-
-    </div>
-
-</div>
 
 
 
