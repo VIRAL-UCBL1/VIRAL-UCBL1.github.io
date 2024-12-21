@@ -1457,7 +1457,7 @@
 
 
 <h3 id="src.VIRAL.VIRAL.__init__" class="doc doc-heading">
-            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="s1">&#39;qwen2.5-coder&#39;</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span></code>
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">training_time</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span></code>
 
 </h3>
 
@@ -1477,7 +1477,7 @@
 
 
 <h3 id="src.VIRAL.VIRAL.generate_reward_function" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generate_reward_function</span><span class="p">(</span><span class="n">task_description</span><span class="p">,</span> <span class="n">iterations</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">generate_reward_function</span><span class="p">(</span><span class="n">task_description</span><span class="p">,</span> <span class="n">n_init</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">n_refine</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span></code>
 
 </h3>
 
@@ -1540,7 +1540,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
               </div>
             </td>
             <td>
-                  <code>1</code>
+                <em>required</em>
             </td>
           </tr>
       </tbody>
