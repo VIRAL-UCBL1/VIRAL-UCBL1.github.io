@@ -1113,6 +1113,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoggerCSV
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LoggerCSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.__new__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __new__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.to_csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      to_csv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.getLoggerCSV" class="md-nav__link">
+    <span class="md-ellipsis">
+      getLoggerCSV
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1283,6 +1334,57 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV" class="md-nav__link">
+    <span class="md-ellipsis">
+      LoggerCSV
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="LoggerCSV">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.__new__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __new__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.LoggerCSV.to_csv" class="md-nav__link">
+    <span class="md-ellipsis">
+      to_csv
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#src.log.LoggerCSV.getLoggerCSV" class="md-nav__link">
+    <span class="md-ellipsis">
+      getLoggerCSV
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -1339,6 +1441,377 @@
 
 
 
+<div class="doc doc-object doc-class">
+
+
+
+<h2 id="src.log.LoggerCSV.LoggerCSV" class="doc doc-heading">
+            <code>LoggerCSV</code>
+
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+
+        <p>Logger for recording performance metrics in a CSV file.</p>
+
+
+<p><span class="doc-section-title">Attributes:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td><code><span title="src.log.LoggerCSV.LoggerCSV.env_type">env_type</span></code></td>
+            <td>
+                  <code><span title="Environments.EnvType">EnvType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The type of environment.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.log.LoggerCSV.LoggerCSV.llm">llm</span></code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The language model used.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.log.LoggerCSV.LoggerCSV.csv_file">csv_file</span></code></td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Path to the CSV file for logging.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.log.LoggerCSV.LoggerCSV.logger">logger</span></code></td>
+            <td>
+                  <code>Logger</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Instance of the logger.</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td><code><span title="src.log.LoggerCSV.LoggerCSV._initialized">_initialized</span></code></td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Indicates whether the logger has been initialized.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+
+
+
+
+
+
+
+  <div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.log.LoggerCSV.LoggerCSV.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">llm</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Initialize the LoggerCSV instance.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>env_type</code>
+            </td>
+            <td>
+                  <code><span title="Environments.EnvType">EnvType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The type of environment.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>llm</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The language model used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.log.LoggerCSV.LoggerCSV.__new__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__new__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">llm</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Create a new instance of LoggerCSV.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>env_type</code>
+            </td>
+            <td>
+                  <code><span title="Environments.EnvType">EnvType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The type of environment.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>llm</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The language model used.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>LoggerCSV</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The singleton instance of LoggerCSV.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.log.LoggerCSV.LoggerCSV.to_csv" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">to_csv</span><span class="p">(</span><span class="n">state</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Write performance metrics to the CSV file.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>state</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The state object containing performance metrics.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>ValueError</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the state is not completed.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+</div>
+
+
+<div class="doc doc-object doc-function">
+
+
+<h2 id="src.log.LoggerCSV.getLoggerCSV" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">getLoggerCSV</span><span class="p">()</span></code>
+
+</h2>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Retrieve the instance of the CSV logger.</p>
+
+
+<p><span class="doc-section-title">Raises:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>NotImplementedError</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>If the logger instance has not been created.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
 
 
 

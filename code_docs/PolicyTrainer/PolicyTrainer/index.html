@@ -866,9 +866,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.evaluate_policy" class="md-nav__link">
     <span class="md-ellipsis">
       evaluate_policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_hf" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy_hf
     </span>
   </a>
   
@@ -1318,9 +1345,36 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.evaluate_policy" class="md-nav__link">
     <span class="md-ellipsis">
       evaluate_policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_hf" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy_hf
     </span>
   </a>
   
@@ -1422,6 +1476,86 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">memory</span><span class="p">,</span> <span class="n">env_type</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>initialise the policy trainer</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>memory</code>
+            </td>
+            <td>
+                  <code>list[<span title="State.State.State">State</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>env_type</code>
+            </td>
+            <td>
+                  <code><span title="Environments.EnvType.EnvType">EnvType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>parameter of the env</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>timeout</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>for the model.learn()</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.evaluate_policy" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">evaluate_policy</span><span class="p">(</span><span class="n">idx1</span><span class="p">,</span> <span class="n">idx2</span><span class="p">)</span></code>
 
@@ -1430,7 +1564,8 @@
 
     <div class="doc doc-contents ">
 
-        <p>Evaluate policy performance for multiple reward functions</p>
+        <p>TODO to be change, i think evaluate if the policy give is better than the original
+Evaluate policy performance for multiple reward functions</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1497,6 +1632,188 @@
               <div class="doc-md-description">
                 <p>Performance metrics for multiple reward functions</p>
               </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">test_policy</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">policy</span><span class="p">,</span> <span class="n">numvenv</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>test a policy already train</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>env</code>
+            </td>
+            <td>
+                  <code><span title="stable_baselines3.common.vec_env.base_vec_env.VecEnv">VecEnv</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>envs</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy</code>
+            </td>
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>can be PPO or other RLAlgo</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>numvenv</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>number of env in the vec</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_episodes</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>. Defaults to 100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>float</code></td>            <td>
+                  <code>float</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p><em>description</em></p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">test_policy_hf</span><span class="p">(</span><span class="n">policy_path</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>visualise a policy</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy_path</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the path of the policy to load</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_episodes</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>. Defaults to 100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>100</code>
             </td>
           </tr>
       </tbody>
