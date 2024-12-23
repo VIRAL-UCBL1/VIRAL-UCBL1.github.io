@@ -800,6 +800,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.LLM.OllamaChat.OllamaChat.generate_simple_response" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_simple_response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.LLM.OllamaChat.OllamaChat.print_Generator_and_return" class="md-nav__link">
     <span class="md-ellipsis">
       print_Generator_and_return
@@ -1372,6 +1381,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.LLM.OllamaChat.OllamaChat.generate_simple_response" class="md-nav__link">
+    <span class="md-ellipsis">
+      generate_simple_response
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.LLM.OllamaChat.OllamaChat.print_Generator_and_return" class="md-nav__link">
     <span class="md-ellipsis">
       print_Generator_and_return
@@ -1690,6 +1708,92 @@
           <tr class="doc-section-item">
             <td>
                   <code><span title="typing.Union">Union</span>[str, <span title="typing.Generator">Generator</span>]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Response as string or streaming generator</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.LLM.OllamaChat.OllamaChat.generate_simple_response" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">generate_simple_response</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">sys_prompt</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">stream</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">additional_options</span><span class="o">=</span><span class="p">{})</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Generate a simple response without historic.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>stream</code>
+            </td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Stream response in real-time</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>additional_options</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Temporary generation options</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
             </td>
             <td>
               <div class="doc-md-description">
