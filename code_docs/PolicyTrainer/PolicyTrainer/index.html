@@ -1557,15 +1557,14 @@
 
 
 <h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.evaluate_policy" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">evaluate_policy</span><span class="p">(</span><span class="n">idx1</span><span class="p">,</span> <span class="n">idx2</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">evaluate_policy</span><span class="p">(</span><span class="n">list_idx</span><span class="p">)</span></code>
 
 </h3>
 
 
     <div class="doc doc-contents ">
 
-        <p>TODO to be change, i think evaluate if the policy give is better than the original
-Evaluate policy performance for multiple reward functions</p>
+        <p>Evaluate policy performance for multiple reward functions</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1626,7 +1625,7 @@ Evaluate policy performance for multiple reward functions</p>
       <tbody>
           <tr class="doc-section-item">
 <td><code>Dict</code></td>            <td>
-                  <code>int</code>
+                  <code>tuple[list[int], list[int], float]</code>
             </td>
             <td>
               <div class="doc-md-description">
