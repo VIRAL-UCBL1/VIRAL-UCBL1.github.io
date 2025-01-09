@@ -2,90 +2,110 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://viral-ucbl1.github.io/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/LICENSE/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/setup/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/VIRAL/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/main/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/test_env/</loc>
+         <lastmod>2025-01-09</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/test_function/</loc>
+         <lastmod>2025-01-09</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/visualise/</loc>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/Environments/Algo/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/Environments/CartPole/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/Environments/EnvType/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/Environments/Highway/</loc>
+         <lastmod>2025-01-09</lastmod>
+    </url>
+    <url>
+         <loc>https://viral-ucbl1.github.io/code_docs/Environments/Hopper/</loc>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/Environments/LunarLander/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
-         <loc>https://viral-ucbl1.github.io/code_docs/Environments/Prompt/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <loc>https://viral-ucbl1.github.io/code_docs/Environments/Pacman/</loc>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/LLM/GenCode/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/LLM/LLMOptions/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/LLM/OllamaChat/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/PolicyTrainer/CustomRewardWrapper/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/PolicyTrainer/PolicyTrainer/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/PolicyTrainer/TrainingInfoCallback/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/RLAlgo/DirectSearch/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/RLAlgo/Reinforce/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/State/State/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/log/LoggerCSV/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/log/log_config/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
     <url>
          <loc>https://viral-ucbl1.github.io/code_docs/utils/utils/</loc>
-         <lastmod>2025-01-06</lastmod>
+         <lastmod>2025-01-09</lastmod>
     </url>
 </urlset>
