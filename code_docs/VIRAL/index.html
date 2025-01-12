@@ -1442,7 +1442,7 @@
 
 
 <h3 id="src.VIRAL.VIRAL.__init__" class="doc doc-heading">
-            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">model</span><span class="p">,</span> <span class="n">hf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">training_time</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">nb_vec_envs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legacy_training</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span></code>
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">env_type</span><span class="p">,</span> <span class="n">model_actor</span><span class="p">,</span> <span class="n">model_critic</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">hf</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">seed</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">training_time</span><span class="o">=</span><span class="mi">25000</span><span class="p">,</span> <span class="n">nb_vec_envs</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">legacy_training</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">options</span><span class="o">=</span><span class="p">{})</span></code>
 
 </h3>
 
@@ -1452,7 +1452,7 @@
         <p>Initialize VIRAL architecture for dynamic reward function generation
     Args:
         env_type (EnvType): refer to parameter of an gym Env
-        model (str): Language model for reward generation
+        model_actor (str): Language model for reward generation
         hf (bool, optional): active the human feedback
         training_time (int, optional): timeout for model.learn()
         options (dict, optional): options for the llm</p>
@@ -1465,7 +1465,7 @@
 
 
 <h3 id="src.VIRAL.VIRAL.generate_context" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">generate_context</span><span class="p">(</span><span class="n">prompt_info</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">generate_context</span><span class="p">()</span></code>
 
 </h3>
 
@@ -1473,37 +1473,6 @@
     <div class="doc doc-contents ">
 
         <p>Generate more contexte for Step back prompting</p>
-
-
-<p><span class="doc-section-title">Parameters:</span></p>
-    <table>
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Type</th>
-          <th>Description</th>
-          <th>Default</th>
-        </tr>
-      </thead>
-      <tbody>
-          <tr class="doc-section-item">
-            <td>
-                <code>prompt_info</code>
-            </td>
-            <td>
-                  <code>dict</code>
-            </td>
-            <td>
-              <div class="doc-md-description">
-                <p>contain a task, and observation space</p>
-              </div>
-            </td>
-            <td>
-                <em>required</em>
-            </td>
-          </tr>
-      </tbody>
-    </table>
 
     </div>
 
@@ -1665,7 +1634,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
 
     <div class="doc doc-contents ">
 
-        <p>implement human feedback </p>
+        <p>implement human feedback</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1745,7 +1714,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
 
 
 <h3 id="src.VIRAL.VIRAL.self_refine_reward" class="doc doc-heading">
-            <code class="highlight language-python"><span class="n">self_refine_reward</span><span class="p">(</span><span class="n">list_idx</span><span class="p">)</span></code>
+            <code class="highlight language-python"><span class="n">self_refine_reward</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span></code>
 
 </h3>
 
@@ -1810,7 +1779,7 @@ based on its previous performance.</p>
       <tbody>
           <tr class="doc-section-item">
 <td><code>int</code></td>            <td>
-                  <code>list[int]</code>
+                  <code>int</code>
             </td>
             <td>
               <div class="doc-md-description">
