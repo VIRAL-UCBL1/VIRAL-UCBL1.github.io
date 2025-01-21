@@ -1399,7 +1399,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>init the custom reward wrapper</p>
+        <p>Initialize the custom reward wrapper</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1479,7 +1479,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>override the step function to integrate our reward function</p>
+        <p>Realise the action in the environment</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1516,17 +1516,53 @@
     <table>
       <thead>
         <tr>
-<th>Name</th>          <th>Type</th>
+          <th>Type</th>
           <th>Description</th>
         </tr>
       </thead>
       <tbody>
           <tr class="doc-section-item">
-<td><code>tuple</code></td>            <td>
+            <td>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>observation, reward, terminated, truncated, info</p>
+                <p>observation (): the new observation</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>reward (): the reward of the action</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>terminated (): True if the episode is terminated</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>truncated (): True if the episode is truncated</p>
+              </div>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>info (): additional information</p>
               </div>
             </td>
           </tr>

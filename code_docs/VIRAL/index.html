@@ -518,6 +518,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.critical_refine_reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      critical_refine_reward
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.VIRAL.VIRAL.generate_context" class="md-nav__link">
     <span class="md-ellipsis">
       generate_context
@@ -548,6 +557,24 @@
   <a href="#src.VIRAL.VIRAL.self_refine_reward" class="md-nav__link">
     <span class="md-ellipsis">
       self_refine_reward
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.test_reward_func" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_reward_func
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.video_description" class="md-nav__link">
+    <span class="md-ellipsis">
+      video_description
     </span>
   </a>
   
@@ -1310,6 +1337,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.critical_refine_reward" class="md-nav__link">
+    <span class="md-ellipsis">
+      critical_refine_reward
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.VIRAL.VIRAL.generate_context" class="md-nav__link">
     <span class="md-ellipsis">
       generate_context
@@ -1340,6 +1376,24 @@
   <a href="#src.VIRAL.VIRAL.self_refine_reward" class="md-nav__link">
     <span class="md-ellipsis">
       self_refine_reward
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.test_reward_func" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_reward_func
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.VIRAL.VIRAL.video_description" class="md-nav__link">
+    <span class="md-ellipsis">
+      video_description
     </span>
   </a>
   
@@ -1449,13 +1503,272 @@
 
     <div class="doc doc-contents ">
 
-        <p>Initialize VIRAL architecture for dynamic reward function generation
-    Args:
-        env_type (EnvType): refer to parameter of an gym Env
-        model_actor (str): Language model for reward generation
-        hf (bool, optional): active the human feedback
-        training_time (int, optional): timeout for model.learn()
-        options (dict, optional): options for the llm</p>
+        <p>Initialize VIRAL architecture for dynamic reward function generation</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>env_type</code>
+            </td>
+            <td>
+                  <code><span title="Environments.EnvType">EnvType</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Environment type for which the reward function is generated</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>model_actor</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>LLM model for reward function generation</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>model_critic</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>LLM model for reward function evaluation</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>hf</code>
+            </td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Enable human feedback. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>vd</code>
+            </td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Enable video description. Defaults to False.</p>
+              </div>
+            </td>
+            <td>
+                  <code>False</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>seed</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Random seed for training. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>training_time</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Training time in seconds. Defaults to 25000.</p>
+              </div>
+            </td>
+            <td>
+                  <code>25000</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_vec_envs</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Number of vectorized environments. Defaults to 1.</p>
+              </div>
+            </td>
+            <td>
+                  <code>1</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>legacy_training</code>
+            </td>
+            <td>
+                  <code>bool</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Use legacy training. Defaults to True.</p>
+              </div>
+            </td>
+            <td>
+                  <code>True</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>options</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>LLM generation options. Defaults to {}.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{}</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>proxies</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Proxy configuration. Defaults to None.</p>
+              </div>
+            </td>
+            <td>
+                  <code>None</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.VIRAL.VIRAL.critical_refine_reward" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">critical_refine_reward</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Refine a reward function that has critical performance issues.
+This method refines a reward function that has critical performance issues based on the evaluation results.
+It uses a Language Model (LLM) to generate a new reward function that addresses the identified issues.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>idx</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Index of the reward function in the memory to be refined.
+    Typically the worst-performing function from previous evaluation.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>int</code></td>            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>Index of the newly created refined reward function in the memory.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
     </div>
 
@@ -1472,7 +1785,9 @@
 
     <div class="doc doc-contents ">
 
-        <p>Generate more contexte for Step back prompting</p>
+        <p>Generate a context for the reward function generation process.
+This method uses a Language Model (LLM) to generate a context for the reward function generation process.
+The context includes information about the environment, task, and goal to be achieved.</p>
 
     </div>
 
@@ -1634,7 +1949,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
 
     <div class="doc doc-contents ">
 
-        <p>implement human feedback</p>
+        <p>Request human feedback on a reward function to refine it further.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1657,7 +1972,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>user prompt</p>
+                <p>The prompt to present to the human for feedback</p>
               </div>
             </td>
             <td>
@@ -1673,7 +1988,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>state.idx to refine</p>
+                <p>The index of the reward function in the memory</p>
               </div>
             </td>
             <td>
@@ -1699,7 +2014,7 @@ that involves multiple stages of creation, evaluation, and refinement.</p>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>return the modified prompt</p>
+                <p>The updated prompt with human feedback included</p>
               </div>
             </td>
           </tr>
@@ -1826,6 +2141,140 @@ based on its previous performance.</p>
 <li>Maintains a history of function iterations</li>
 </ul>
 </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.VIRAL.VIRAL.test_reward_func" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">test_reward_func</span><span class="p">(</span><span class="n">reward_func</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Test a reward function using the policy trainer.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>reward_func</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The reward function to test</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.VIRAL.VIRAL.video_description" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">video_description</span><span class="p">(</span><span class="n">prompt</span><span class="p">,</span> <span class="n">idx</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Request a video description from the user to refine a reward function.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The prompt to present to the user for video description</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>idx</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The index of the reward function in the memory</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The updated prompt with the video description included</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
     </div>
 
 </div>

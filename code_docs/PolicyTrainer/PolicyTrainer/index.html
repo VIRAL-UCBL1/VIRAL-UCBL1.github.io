@@ -1019,6 +1019,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_hf" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_hf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_vd" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_vd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="md-nav__link">
     <span class="md-ellipsis">
       test_policy
@@ -1031,6 +1058,15 @@
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_hf" class="md-nav__link">
     <span class="md-ellipsis">
       test_policy_hf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_video" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy_video
     </span>
   </a>
   
@@ -1312,6 +1348,33 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_hf" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_hf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_learning" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_learning
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_vd" class="md-nav__link">
+    <span class="md-ellipsis">
+      start_vd
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="md-nav__link">
     <span class="md-ellipsis">
       test_policy
@@ -1324,6 +1387,15 @@
   <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_hf" class="md-nav__link">
     <span class="md-ellipsis">
       test_policy_hf
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_video" class="md-nav__link">
+    <span class="md-ellipsis">
+      test_policy_video
     </span>
   </a>
   
@@ -1433,7 +1505,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>initialise the policy trainer</p>
+        <p>Initialize the PolicyTrainer instance.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1456,7 +1528,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                
+                <p>list of states</p>
               </div>
             </td>
             <td>
@@ -1472,7 +1544,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>parameter of the env</p>
+                <p>the type of environment</p>
               </div>
             </td>
             <td>
@@ -1488,7 +1560,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>for the model.learn()</p>
+                <p>the maximum number of timesteps</p>
               </div>
             </td>
             <td>
@@ -1592,6 +1664,182 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_hf" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_hf</span><span class="p">(</span><span class="n">policy_path</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Start the test of a policy to evaluate its performances</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy_path</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the path of the policy to test</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_episodes</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the number of episodes to test. Defaults to 100.</p>
+              </div>
+            </td>
+            <td>
+                  <code>10</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_learning" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_learning</span><span class="p">(</span><span class="n">idx</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Start the learning process for a given state</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>idx</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the index of the state to train</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.start_vd" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">start_vd</span><span class="p">(</span><span class="n">policy_path</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Start the test of a policy to evaluate its performances</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy_path</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the path of the policy to test</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_episodes</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the number of episodes to test. Defaults to 3.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">test_policy</span><span class="p">(</span><span class="n">policy</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span></code>
 
@@ -1600,7 +1848,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>test a policy already train</p>
+        <p>Test a policy on the environment</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1623,7 +1871,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>envs</p>
+                <p>the environment</p>
               </div>
             </td>
             <td>
@@ -1635,10 +1883,11 @@
                 <code>policy</code>
             </td>
             <td>
+                  <code>BasePolicy</code>
             </td>
             <td>
               <div class="doc-md-description">
-                <p>can be PPO or other RLAlgo</p>
+                <p>the policy to test</p>
               </div>
             </td>
             <td>
@@ -1654,7 +1903,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>number of env in the vec</p>
+                <p>the number of environments</p>
               </div>
             </td>
             <td>
@@ -1670,7 +1919,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>. Defaults to 100.</p>
+                <p>the number of episodes to test. Defaults to 100.</p>
               </div>
             </td>
             <td>
@@ -1696,7 +1945,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p><em>description</em></p>
+                <p>the success rate of the policy</p>
               </div>
             </td>
           </tr>
@@ -1718,7 +1967,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>visualise a policy</p>
+        <p>Visualize the test of a policy to evaluate its performances</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1741,7 +1990,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>the path of the policy to load</p>
+                <p>the path of the policy to test</p>
               </div>
             </td>
             <td>
@@ -1757,11 +2006,75 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>. Defaults to 100.</p>
+                <p>the number of episodes to test. Defaults to 10.</p>
               </div>
             </td>
             <td>
                   <code>10</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.PolicyTrainer.PolicyTrainer.PolicyTrainer.test_policy_video" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">test_policy_video</span><span class="p">(</span><span class="n">policy_path</span><span class="p">,</span> <span class="n">nb_episodes</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Visualize the test of a policy to evaluate its performances</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>policy_path</code>
+            </td>
+            <td>
+                  <code>str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the path of the policy to test</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>nb_episodes</code>
+            </td>
+            <td>
+                  <code>int</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the number of episodes to test. Defaults to 3.</p>
+              </div>
+            </td>
+            <td>
+                  <code>3</code>
             </td>
           </tr>
       </tbody>

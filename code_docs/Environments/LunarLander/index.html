@@ -680,6 +680,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.objective_metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      objective_metric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.Environments.LunarLander.LunarLander.success_func" class="md-nav__link">
     <span class="md-ellipsis">
       success_func
@@ -1267,6 +1294,33 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.LunarLander.LunarLander.objective_metric" class="md-nav__link">
+    <span class="md-ellipsis">
+      objective_metric
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.Environments.LunarLander.LunarLander.success_func" class="md-nav__link">
     <span class="md-ellipsis">
       success_func
@@ -1349,8 +1403,10 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><span title="src.Environments.EnvType.EnvType">EnvType</span></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="src.Environments.EnvType.EnvType" href="../EnvType/#src.Environments.EnvType.EnvType">EnvType</a></code></p>
 
+
+        <p>This class represents the Lunar Lander environment.</p>
 
 
 
@@ -1373,6 +1429,196 @@
 <div class="doc doc-object doc-function">
 
 
+<h3 id="src.Environments.LunarLander.LunarLander.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="n">Algo</span><span class="o">.</span><span class="n">DQN</span><span class="p">,</span> <span class="n">algo_param</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;batch_size&#39;</span><span class="p">:</span> <span class="mi">128</span><span class="p">,</span> <span class="s1">&#39;buffer_size&#39;</span><span class="p">:</span> <span class="mi">50000</span><span class="p">,</span> <span class="s1">&#39;exploration_final_eps&#39;</span><span class="p">:</span> <span class="mf">0.1</span><span class="p">,</span> <span class="s1">&#39;exploration_fraction&#39;</span><span class="p">:</span> <span class="mf">0.12</span><span class="p">,</span> <span class="s1">&#39;gamma&#39;</span><span class="p">:</span> <span class="mf">0.99</span><span class="p">,</span> <span class="s1">&#39;gradient_steps&#39;</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;learning_rate&#39;</span><span class="p">:</span> <span class="mf">0.00063</span><span class="p">,</span> <span class="s1">&#39;learning_starts&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;MlpPolicy&#39;</span><span class="p">,</span> <span class="s1">&#39;policy_kwargs&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;net_arch&#39;</span><span class="p">:</span> <span class="p">[</span><span class="mi">256</span><span class="p">,</span> <span class="mi">256</span><span class="p">]},</span> <span class="s1">&#39;target_update_interval&#39;</span><span class="p">:</span> <span class="mi">250</span><span class="p">,</span> <span class="s1">&#39;train_freq&#39;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span> <span class="s1">&#39;tensorboard_log&#39;</span><span class="p">:</span> <span class="s1">&#39;data/model/LunarLanderDQN/&#39;</span><span class="p">},</span> <span class="n">prompt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Goal&#39;</span><span class="p">:</span> <span class="s2">&quot;Land safely on the ground, but don&#39;t move if you touch the ground&quot;</span><span class="p">,</span> <span class="s1">&#39;Observation Space&#39;</span><span class="p">:</span> <span class="s1">&#39;Box([ -2.5 -2.5 -10. -10. -6.2831855 -10. -0. -0. ], [ 2.5 2.5 10. 10. 6.2831855 10. 1. 1. ], (8,), float32)</span><span class="se">\n</span><span class="s1">        The state is an 8-dimensional vector: the coordinates of the lander in x &amp; y, its linear velocities in x &amp; y, its angle, its angular velocity, and two booleans that represent whether each leg is in contact with the ground or not.</span><span class="se">\n</span><span class="s1">    &#39;</span><span class="p">})</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Constructor for the Lunar Lander environment.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>algo</code>
+            </td>
+            <td>
+                  <code><span title="Environments.Algo">Algo</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The algorithm to be used for training. Defaults to Algo.DQN.</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="Environments.Algo.DQN">DQN</span></code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>algo_param</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The parameters for the algorithm. Defaults to {"batch_size": 128, "buffer_size": 50000, "exploration_final_eps": 0.1, "exploration_fraction": 0.12, "gamma": 0.99, "gradient_steps": -1, "learning_rate": 0.00063, "learning_starts": 0, "policy": "MlpPolicy", "policy_kwargs": {"net_arch": [256, 256]}, "target_update_interval": 250, "train_freq": 4, "tensorboard_log": "data/model/LunarLanderDQN/"}.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{&#39;batch_size&#39;: 128, &#39;buffer_size&#39;: 50000, &#39;exploration_final_eps&#39;: 0.1, &#39;exploration_fraction&#39;: 0.12, &#39;gamma&#39;: 0.99, &#39;gradient_steps&#39;: -1, &#39;learning_rate&#39;: 0.00063, &#39;learning_starts&#39;: 0, &#39;policy&#39;: &#39;MlpPolicy&#39;, &#39;policy_kwargs&#39;: {&#39;net_arch&#39;: [256, 256]}, &#39;target_update_interval&#39;: 250, &#39;train_freq&#39;: 4, &#39;tensorboard_log&#39;: &#39;data/model/LunarLanderDQN/&#39;}</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code>dict | str</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The prompt for the environment. Defaults to {"Goal": "Land safely on the ground, but don't move if you touch the ground", "Observation Space": [...].</p>
+              </div>
+            </td>
+            <td>
+                  <code>{&#39;Goal&#39;: &#34;Land safely on the ground, but don&#39;t move if you touch the ground&#34;, &#39;Observation Space&#39;: &#39;Box([ -2.5 -2.5 -10. -10. -6.2831855 -10. -0. -0. ], [ 2.5 2.5 10. 10. 6.2831855 10. 1. 1. ], (8,), float32)\n        The state is an 8-dimensional vector: the coordinates of the lander in x &amp; y, its linear velocities in x &amp; y, its angle, its angular velocity, and two booleans that represent whether each leg is in contact with the ground or not.\n    &#39;}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.Environments.LunarLander.LunarLander.__repr__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__repr__</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>This function returns the name of the environment.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The name of the environment.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.Environments.LunarLander.LunarLander.objective_metric" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">objective_metric</span><span class="p">(</span><span class="n">states</span><span class="p">)</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>This function calculates the objective metric for the Lunar Lander environment.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>states</code>
+            </td>
+            <td>
+                  <code>list</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The states of the environment.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>list[dict[str, float]]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>list[dict[str, float]]: The objective metric for the environment.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="src.Environments.LunarLander.LunarLander.success_func" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">success_func</span><span class="p">(</span><span class="n">env</span><span class="p">,</span> <span class="n">info</span><span class="p">)</span></code>
 
@@ -1381,7 +1627,77 @@
 
     <div class="doc doc-contents ">
 
-        <p>Cette fonction vérifie si le lander est "awake" et met à jour l'info.</p>
+        <p>This function checks if the Lunar Lander has landed successfully or failed.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>env</code>
+            </td>
+            <td>
+                  <code><span title="gymnasium.Env">Env</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The environment.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>info</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The information about the environment.</p>
+              </div>
+            </td>
+            <td>
+                <em>required</em>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                  <code>tuple[bool | bool]</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>tuple[bool | bool]: A tuple of two booleans. The first boolean represents if the lander has landed successfully, and the second boolean represents if the lander has failed</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
 
     </div>
 

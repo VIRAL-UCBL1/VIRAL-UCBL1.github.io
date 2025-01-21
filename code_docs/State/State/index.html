@@ -1121,6 +1121,15 @@
 </li>
         
           <li class="md-nav__item">
+  <a href="#src.State.State.State.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.State.State.State.set_performances" class="md-nav__link">
     <span class="md-ellipsis">
       set_performances
@@ -1324,6 +1333,15 @@
   <a href="#src.State.State.State.__init__" class="md-nav__link">
     <span class="md-ellipsis">
       __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.State.State.State.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
     </span>
   </a>
   
@@ -1605,7 +1623,7 @@ state.set_performances({
 
     <div class="doc doc-contents ">
 
-        <p>init a new state</p>
+        <p>Initialize a new state in the reward function generation process.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1709,6 +1727,45 @@ state.set_performances({
 <div class="doc doc-object doc-function">
 
 
+<h3 id="src.State.State.State.__repr__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__repr__</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Provide a human-readable string representation of the state</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>the string representation of the state</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
 <h3 id="src.State.State.State.set_performances" class="doc doc-heading">
             <code class="highlight language-python"><span class="n">set_performances</span><span class="p">(</span><span class="n">performances</span><span class="p">)</span></code>
 
@@ -1717,7 +1774,7 @@ state.set_performances({
 
     <div class="doc doc-contents ">
 
-        <p>set performance after the test</p>
+        <p>Set the performances of the state</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1740,7 +1797,7 @@ state.set_performances({
             </td>
             <td>
               <div class="doc-md-description">
-                
+                <p>the performances to set</p>
               </div>
             </td>
             <td>
@@ -1765,7 +1822,7 @@ state.set_performances({
 
     <div class="doc doc-contents ">
 
-        <p>set the current policy</p>
+        <p>Set the policy of the state</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1784,10 +1841,11 @@ state.set_performances({
                 <code>policy</code>
             </td>
             <td>
+                  <code>_type_</code>
             </td>
             <td>
               <div class="doc-md-description">
-                
+                <p>the policy to set</p>
               </div>
             </td>
             <td>

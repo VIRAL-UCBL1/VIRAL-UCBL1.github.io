@@ -659,6 +659,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.Environments.Hopper.Hopper.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.Hopper.Hopper.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.Environments.Hopper.Hopper.objective_metric" class="md-nav__link">
     <span class="md-ellipsis">
       objective_metric
@@ -1276,6 +1294,24 @@
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
+  <a href="#src.Environments.Hopper.Hopper.__init__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __init__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#src.Environments.Hopper.Hopper.__repr__" class="md-nav__link">
+    <span class="md-ellipsis">
+      __repr__
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
   <a href="#src.Environments.Hopper.Hopper.objective_metric" class="md-nav__link">
     <span class="md-ellipsis">
       objective_metric
@@ -1367,8 +1403,10 @@
 
     <div class="doc doc-contents ">
             <p class="doc doc-class-bases">
-              Bases: <code><span title="src.Environments.EnvType.EnvType">EnvType</span></code></p>
+              Bases: <code><a class="autorefs autorefs-internal" title="src.Environments.EnvType.EnvType" href="../EnvType/#src.Environments.EnvType.EnvType">EnvType</a></code></p>
 
+
+        <p>This class represents the Hopper environment.</p>
 
 
 
@@ -1387,6 +1425,125 @@
 
 
 
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.Environments.Hopper.Hopper.__init__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="n">Algo</span><span class="o">.</span><span class="n">PPO</span><span class="p">,</span> <span class="n">algo_param</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;MlpPolicy&#39;</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="s1">&#39;cpu&#39;</span><span class="p">},</span> <span class="n">prompt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Goal&#39;</span><span class="p">:</span> <span class="s2">&quot;Control the Hopper to move in the forward direction, take care to don&#39;t fall, make the highest jump&quot;</span><span class="p">,</span> <span class="s1">&#39;Observation Space&#39;</span><span class="p">:</span> <span class="s1">&#39;Box(-inf, inf, (11,), float64)</span><span class="se">\n\n</span><span class="s1">The observation space consists of the following parts (in order):</span><span class="se">\n</span><span class="s1">qpos (5 elements by default): Position values of the robot’s body parts.</span><span class="se">\n</span><span class="s1">qvel (6 elements): The velocities of these individual body parts (their derivatives).</span><span class="se">\n</span><span class="s1">the x- and y-coordinates are returned in info with the keys &quot;x_position&quot; and &quot;y_position&quot;, respectively.</span><span class="se">\n\n</span><span class="s1">| Num      | Observation                                      | Min   | Max  | Type                |</span><span class="se">\n</span><span class="s1">|----------|--------------------------------------------------|-------|------|---------------------|</span><span class="se">\n</span><span class="s1">| 0        | z-coordinate of the torso (height of hopper)     | -Inf  | Inf  | position (m)        |</span><span class="se">\n</span><span class="s1">| 1        | angle of the torso                               | -Inf  | Inf  | angle (rad)         |</span><span class="se">\n</span><span class="s1">| 2        | angle of the thigh joint                         | -Inf  | Inf  | angle (rad)         |</span><span class="se">\n</span><span class="s1">| 3        | angle of the leg joint                           | -Inf  | Inf  | angle (rad)         |</span><span class="se">\n</span><span class="s1">| 4        | angle of the foot joint                          | -Inf  | Inf  | angle (rad)         |</span><span class="se">\n</span><span class="s1">| 5        | velocity of the x-coordinate of the torso        | -Inf  | Inf  | velocity (m/s)      |</span><span class="se">\n</span><span class="s1">| 6        | velocity of the z-coordinate (height) of torso   | -Inf  | Inf  | velocity (m/s)      |</span><span class="se">\n</span><span class="s1">| 7        | angular velocity of the angle of the torso       | -Inf  | Inf  | angular velocity (rad/s) |</span><span class="se">\n</span><span class="s1">| 8        | angular velocity of the thigh hinge              | -Inf  | Inf  | angular velocity (rad/s) |</span><span class="se">\n</span><span class="s1">| 9        | angular velocity of the leg hinge                | -Inf  | Inf  | angular velocity (rad/s) |</span><span class="se">\n</span><span class="s1">| 10       | angular velocity of the foot hinge               | -Inf  | Inf  | angular velocity (rad/s) |</span><span class="se">\n</span><span class="s1">| excluded | x-coordinate of the torso                        | -Inf  | Inf  | position (m)        |</span><span class="se">\n\t\t</span><span class="s1">&quot;Action Space&quot;: The action space is a Box(-1, 1, (3,), float32). An action represents the torques applied at the hinge joints.</span><span class="se">\n</span><span class="s1">| Num | Action                          | Control Min | Control Max | Name (in corresponding XML file) | Joint  | Type         |</span><span class="se">\n</span><span class="s1">|-----|---------------------------------|-------------|-------------|-----------------------------------|--------|--------------|</span><span class="se">\n</span><span class="s1">| 0   | Torque applied on the thigh rotor | -1          | 1           | thigh_joint                       | hinge  | torque (N m) |</span><span class="se">\n</span><span class="s1">| 1   | Torque applied on the leg rotor   | -1          | 1           | leg_joint                         | hinge  | torque (N m) |</span><span class="se">\n</span><span class="s1">| 2   | Torque applied on the foot rotor  | -1          | 1           | foot_joint                        | hinge  | torque (N m) |</span><span class="se">\n\n</span><span class="s1">&#39;</span><span class="p">})</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Constructor for the Hopper environment.</p>
+
+
+<p><span class="doc-section-title">Parameters:</span></p>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Type</th>
+          <th>Description</th>
+          <th>Default</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+            <td>
+                <code>algo</code>
+            </td>
+            <td>
+                  <code><span title="Environments.Algo">Algo</span></code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The algorithm to be used for training. Defaults to Algo.PPO.</p>
+              </div>
+            </td>
+            <td>
+                  <code><span title="Environments.Algo.PPO">PPO</span></code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>algo_param</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The parameters for the algorithm. Defaults to {"policy": "MlpPolicy", "verbose": 0, "device": "cpu"}.</p>
+              </div>
+            </td>
+            <td>
+                  <code>{&#39;policy&#39;: &#39;MlpPolicy&#39;, &#39;verbose&#39;: 0, &#39;device&#39;: &#39;cpu&#39;}</code>
+            </td>
+          </tr>
+          <tr class="doc-section-item">
+            <td>
+                <code>prompt</code>
+            </td>
+            <td>
+                  <code>dict</code>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The prompt for the environment. Defaults to {"Goal": "Control the Hopper to move in the forward direction, take care to don't fall, make the highest jump", "Observation Space": [...]</p>
+              </div>
+            </td>
+            <td>
+                  <code>{&#39;Goal&#39;: &#34;Control the Hopper to move in the forward direction, take care to don&#39;t fall, make the highest jump&#34;, &#39;Observation Space&#39;: &#39;Box(-inf, inf, (11,), float64)\n\nThe observation space consists of the following parts (in order):\nqpos (5 elements by default): Position values of the robot’s body parts.\nqvel (6 elements): The velocities of these individual body parts (their derivatives).\nthe x- and y-coordinates are returned in info with the keys &#34;x_position&#34; and &#34;y_position&#34;, respectively.\n\n| Num      | Observation                                      | Min   | Max  | Type                |\n|----------|--------------------------------------------------|-------|------|---------------------|\n| 0        | z-coordinate of the torso (height of hopper)     | -Inf  | Inf  | position (m)        |\n| 1        | angle of the torso                               | -Inf  | Inf  | angle (rad)         |\n| 2        | angle of the thigh joint                         | -Inf  | Inf  | angle (rad)         |\n| 3        | angle of the leg joint                           | -Inf  | Inf  | angle (rad)         |\n| 4        | angle of the foot joint                          | -Inf  | Inf  | angle (rad)         |\n| 5        | velocity of the x-coordinate of the torso        | -Inf  | Inf  | velocity (m/s)      |\n| 6        | velocity of the z-coordinate (height) of torso   | -Inf  | Inf  | velocity (m/s)      |\n| 7        | angular velocity of the angle of the torso       | -Inf  | Inf  | angular velocity (rad/s) |\n| 8        | angular velocity of the thigh hinge              | -Inf  | Inf  | angular velocity (rad/s) |\n| 9        | angular velocity of the leg hinge                | -Inf  | Inf  | angular velocity (rad/s) |\n| 10       | angular velocity of the foot hinge               | -Inf  | Inf  | angular velocity (rad/s) |\n| excluded | x-coordinate of the torso                        | -Inf  | Inf  | position (m)        |\n\t\t&#34;Action Space&#34;: The action space is a Box(-1, 1, (3,), float32). An action represents the torques applied at the hinge joints.\n| Num | Action                          | Control Min | Control Max | Name (in corresponding XML file) | Joint  | Type         |\n|-----|---------------------------------|-------------|-------------|-----------------------------------|--------|--------------|\n| 0   | Torque applied on the thigh rotor | -1          | 1           | thigh_joint                       | hinge  | torque (N m) |\n| 1   | Torque applied on the leg rotor   | -1          | 1           | leg_joint                         | hinge  | torque (N m) |\n| 2   | Torque applied on the foot rotor  | -1          | 1           | foot_joint                        | hinge  | torque (N m) |\n\n&#39;}</code>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h3 id="src.Environments.Hopper.Hopper.__repr__" class="doc doc-heading">
+            <code class="highlight language-python"><span class="fm">__repr__</span><span class="p">()</span></code>
+
+</h3>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Returns the string representation of the Hopper environment.</p>
+
+
+    <p><span class="doc-section-title">Returns:</span></p>
+    <table>
+      <thead>
+        <tr>
+<th>Name</th>          <th>Type</th>
+          <th>Description</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="doc-section-item">
+<td><code>str</code></td>            <td>
+            </td>
+            <td>
+              <div class="doc-md-description">
+                <p>The string representation of the Hopper environment.</p>
+              </div>
+            </td>
+          </tr>
+      </tbody>
+    </table>
+
+    </div>
+
+</div>
 
 <div class="doc doc-object doc-function">
 
