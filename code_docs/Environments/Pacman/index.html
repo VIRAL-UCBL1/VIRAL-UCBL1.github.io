@@ -1430,7 +1430,7 @@
 
 
 <h3 id="src.Environments.Pacman.Pacman.__init__" class="doc doc-heading">
-            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="n">Algo</span><span class="o">.</span><span class="n">DQN</span><span class="p">,</span> <span class="n">algo_param</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;MlpPolicy&#39;</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="s1">&#39;cpu&#39;</span><span class="p">},</span> <span class="n">prompt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Goal&#39;</span><span class="p">:</span> <span class="s1">&#39;Collect all food items and avoid ghosts unless a Power Pellet is consumed, enabling Pacman to eat ghosts.&#39;</span><span class="p">,</span> <span class="s1">&#39;Observation Space&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    Type              Shape               Description</span><span class="se">\n</span><span class="s1">    rgb               Box(0, 255, (210, 160, 3), uint8)  Full-color 3D representation of the environment</span><span class="se">\n</span><span class="s1">    grayscale         Box(0, 255, (210, 160), uint8)     Grayscale version of the visual environment</span><span class="se">\n</span><span class="s1">    ram               Box(0, 255, (128,), uint8)         RAM representation of the game state</span><span class="se">\n</span><span class="s1">    &#39;</span><span class="p">})</span></code>
+            <code class="highlight language-python"><span class="fm">__init__</span><span class="p">(</span><span class="n">algo</span><span class="o">=</span><span class="n">Algo</span><span class="o">.</span><span class="n">PPO</span><span class="p">,</span> <span class="n">algo_param</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;policy&#39;</span><span class="p">:</span> <span class="s1">&#39;MlpPolicy&#39;</span><span class="p">,</span> <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;device&#39;</span><span class="p">:</span> <span class="s1">&#39;cpu&#39;</span><span class="p">},</span> <span class="n">prompt</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;Goal&#39;</span><span class="p">:</span> <span class="s1">&#39;Collect all food items and avoid ghosts unless a Power Pellet is consumed, enabling Pacman to eat ghosts.&#39;</span><span class="p">,</span> <span class="s1">&#39;Observation Space&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="se">\n</span><span class="s1">    Type              Shape               Description</span><span class="se">\n</span><span class="s1">    rgb               Box(0, 255, (210, 160, 3), uint8)  Full-color 3D representation of the environment</span><span class="se">\n</span><span class="s1">    grayscale         Box(0, 255, (210, 160), uint8)     Grayscale version of the visual environment</span><span class="se">\n</span><span class="s1">    ram               Box(0, 255, (128,), uint8)         RAM representation of the game state</span><span class="se">\n</span><span class="s1">    &#39;</span><span class="p">})</span></code>
 
 </h3>
 
@@ -1464,7 +1464,7 @@
               </div>
             </td>
             <td>
-                  <code><span title="Environments.Algo.DQN">DQN</span></code>
+                  <code><span title="Environments.Algo.PPO">PPO</span></code>
             </td>
           </tr>
           <tr class="doc-section-item">
@@ -1556,7 +1556,7 @@
 
     <div class="doc doc-contents ">
 
-        <p>Method to calculate the objective metric for the Pacman environment</p>
+        <p>Method to calculate the objective metric for the Pacman environment.</p>
 
 
 <p><span class="doc-section-title">Parameters:</span></p>
@@ -1578,7 +1578,7 @@
             </td>
             <td>
               <div class="doc-md-description">
-                <p>The states of the environment</p>
+                <p>The states of the environment.</p>
               </div>
             </td>
             <td>
